@@ -30,6 +30,10 @@ char Cell::getCellType() {
     return this->type;
 }
 
+void Cell::deleteConcrete() {
+    this->Concretecell = nullptr;
+}
+
 void Cell::SetConcreteCell(ConcreteCell *cCell) {
     this->Concretecell = cCell;
 }

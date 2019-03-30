@@ -20,6 +20,7 @@ public:
     bool isStair();
     void setCell(char type);
     char getCellType();
+    void deleteConcrete();
 
     ConcreteCell* GetConcreteCell();
 

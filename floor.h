@@ -30,6 +30,7 @@ public:
     void initEnemies();
     void initPotions();
     void initTreasures();
+    void initStairs(int chamberIndex);
     void updataCurFloor();
     int getCurrentFloor();
     void nextTurn();
