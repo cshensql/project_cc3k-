@@ -3,7 +3,7 @@
 
 #include "cell.h"
 
-class Character: {
+class Character {
 protected:
     int hp;
     int atk;
