@@ -1,14 +1,12 @@
 #ifndef _ITEM_H
 #define _ITEM_H
 
-#include "cell.h"
-#include "floor.h"
+#include "item.h"
+#include "ConcreteCell.h"
 
-class Item: public Cell {
-    Floor *floor = nullptr;
+class Item: public ConcreteCell {
     public:
-        void setFloor(Floor *floor);
-        ~Item();
+        virtual ~Item() = 0;
 };
 
 #endif //_ITEM_H
