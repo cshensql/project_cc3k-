@@ -1,16 +1,24 @@
 #ifndef _TEXTDISPLAY_H
 #define _TEXTDISPLAY_H
 
+#include <string>
 #include "floor.h"
+#include "hero.h"
 
 class TextDisplay {
     Floor *floor;
-    string action;
+    std::string action;
     int floorNumber;
+    std::string heroName;
+    int gold;
+    int hp;
+    int atk;
+    int def;
 public:
     TextDisplay();
     ~TextDisplay();
-    void updateAction(string action);
+    void updateAction(std::string action);
+    void updateHeroInfo(Hero *hero);
     void setFloor(Floor *floor);
     void render();
 };

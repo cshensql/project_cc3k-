@@ -1,8 +1,16 @@
 #ifndef _FLOOR_H
 #define _FLOOR_H
 
+#include <iostream>
 #include <vector>
 #include "cell.h"
+#include "chamber.h"
+#include "hero.h"
+
+class Enemy;
+class Potion;
+class Treasure;
+
 
 class Floor {
     Hero *hero;
@@ -10,14 +18,13 @@ class Floor {
     static const int col = 79;
     static const int row = 30;
     std::vector<std::vector<Cell>> cells;
-    std::vector<Enemy *>;
-    std::vector<Potion *>;
-    std::vector<Treasure *>;
-    std::vector<Chamber *>;
+    std::vector<Enemy *> enemies;
+    std::vector<Potion *> potion;
+    std::vector<Treasure *> treasure;
+    std::vector<Chamber *> chamber;
 public:
     Floor(Hero *hero);
     ~Floor();
-    void clear();
     void init();
     void initHero();
     void initEnemies();

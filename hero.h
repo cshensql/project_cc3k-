@@ -4,16 +4,19 @@
 #include <string>
 #include "character.h"
 #include "enemy.h"
+#include <string>
 
 class Hero: public Character {
     protected:
-        char race;
+        std::string race; //first letter is uppercase
         int maxHp;
         int goldNum;
         bool hasBarrier;
         Floor *floor = nullptr;
     public:
         Hero();
+        std::string getRace();
+        int getGold();
         void usePotion(Potion *potion);
         void move(std::string direction);
         void pickPotion(std::string direction);

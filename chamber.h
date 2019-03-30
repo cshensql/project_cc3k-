@@ -4,6 +4,7 @@
 #include <vector>
 #include "cell.h"
 
+
 class Chamber {
     std::vector<Cell> cells;
     bool hasHero = false;
