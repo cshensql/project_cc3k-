@@ -3,20 +3,21 @@
 
 #include "cell.h"
 
-class Character: public Cell {
+class Character {
 protected:
     int hp;
     int atk;
     int def;
+    Cell *cell = nullptr;
 public:
-    int getHp();
-    int getMaxHp();
-    int getAtk();
-    int getDef();
-    void setHp();
-    void setAtk();
-    void setDef();
-    bool isAlive();
+    virtual ~Character() = 0;
+    int getHp() const;
+    int getAtk() const;
+    int getDef() const;
+    void setHp(int Hp);
+    void setAtk(int Atk);
+    void setDef(int Def);
+    bool isAlive() const;
 };
 
 #endif //_CHARACTER_H
