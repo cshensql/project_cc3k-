@@ -6,8 +6,6 @@ class Item;
 
 class Cell {
 protected:
-    Character *character = nullptr;
-    Item *item = nullptr;
     char type;
     int x;
     int y;
@@ -17,9 +15,7 @@ public:
     ~Cell();
     bool isOccupied();
     bool canMove();
-    bool isStair();
-    void setCharacter(Character *character);
-    void setItem(Item *item);
+    bool isStair(); 
     void setCell(char type);
     void setIndex(int x, int y);
     char getCellType();

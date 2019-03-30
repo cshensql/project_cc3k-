@@ -19,14 +19,14 @@ class Floor {
     static const int row = 30;
     std::vector<std::vector<Cell>> cells;
     std::vector<Enemy *> enemies;
-    std::vector<Potion *> potion;
-    std::vector<Treasure *> treasure;
-    std::vector<Chamber *> chamber;
+    std::vector<Potion *> potions;
+    std::vector<Treasure *> treasures;
+    std::vector<Chamber *> chambers;
 public:
     Floor(Hero *hero);
     ~Floor();
     void init();
-    void initHero();
+    void initHero(int chamberInd);
     void initEnemies();
     void initPotions();
     void initTreasures();

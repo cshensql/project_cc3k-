@@ -10,29 +10,38 @@ Floor::~Floor() {
     for(Enemy *e : enemies) {
         if(e) delete e;
     }
-    for(Potion *p : potion) {
+    for(Potion *p : potions) {
         if(p) delete p;
     }
-    for(Treasure *t : treasure) {
+    for(Treasure *t : treasures) {
         if(t) delete t;
     }
-    for(Chamber *c : chamber) {
+    for(Chamber *c : chambers) {
         if(c) delete c;
     }
     cells.clear();
     enemies.clear();
-    potion.clear();
-    treasure.clear();
-    chamber.clear();
+    potions.clear();
+    treasures.clear();
+    chambers.clear();
 }
 
-
+// generate random chamber for hero
 void Floor::init() {
 
 }
 
-void Floor::initHero() {
-
+void Floor::initHero(int chamberInd) {
+    int index, x, y = 0;
+    int chamberSize = this->chambers[chamberInd]->getSize();
+    while(1) {
+        index = helper::random(chamberSize);
+        x = this->chambers[chamberInd]->getCells()[index].getX();
+        y = this->chambers[chamberInd]->getCells()[index].getY();
+        if(!this->getCell(x, y).isOccupied()) {
+            this->hero->
+        }
+    }
 }
 
 void Floor::initEnemies() {

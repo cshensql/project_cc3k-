@@ -6,13 +6,10 @@ Cell::Cell() {}
 
 Cell::Cell(char type, int x, int y): type{type}, x{x}, y{y} {}
 
-Cell::~Cell() {
-    delete character;
-    delete item;
-}
+Cell::~Cell() {}
 
 bool Cell::isOccupied() {
-    return this->type == '.';
+    return this->type != '.';
 }
 
 bool Cell::canMove() {
@@ -23,13 +20,6 @@ bool Cell::isStair() {
     return type == '\\';
 }
 
-void Cell::setCharacter(Character *character) {
-    this->character = character;
-}
-
-void Cell::setItem(Item *item) {
-    this->item = item;
-}
 
 void Cell::setCell(char type) {
     this->type = type;
