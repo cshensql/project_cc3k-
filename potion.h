@@ -6,11 +6,12 @@
 
 class Potion: public Item {
         std::string type;
-        bool isUsed;
-        bool permanentEffect;
+        bool isUsed = false;
+        bool permanentEffect = false;
     public:
         Potion();
-        std::string getType();
+        std::string getType() const;
+        void potionDrunk();
         ~Potion();
 };
 
