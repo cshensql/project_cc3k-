@@ -4,7 +4,6 @@
 #include <string>
 #include "character.h"
 #include "enemy.h"
-#include <string>
 
 class Hero: public Character {
     protected:
