@@ -1,14 +1,14 @@
 #ifndef _CHARACTER_H
 #define _CHARACTER_H
 
-#include "cell.h"
+#include "character.h"
+#include "ConcreteCell.h"
 
-class Character {
+class Character: public ConcreteCell {
 protected:
     int hp;
     int atk;
     int def;
-    Cell *cell = nullptr;
 public:
     virtual ~Character() = 0;
     int getHp() const;

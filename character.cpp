@@ -2,9 +2,7 @@
 
 using namespace std;
 
-Character::~Character() {
-    delete cell;
-}
+Character::~Character() {}
 
 int Cell::getHp() const {
     return this->hp;
@@ -35,5 +33,5 @@ void Cell::setDef(int Def) {
 }
     
 bool Cell::isAlive() const {
-    return (hp <= 0);
+    return (this->hp <= 0);
 }
