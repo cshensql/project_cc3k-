@@ -1,25 +1,29 @@
 #ifndef _CELL_H
 #define _CELL_H
 
-class Character;
-class Item;
 
-class Cell {
+//class Character;
+//class Item;
+#include "BasicCell.h"
+class ConcreteCell;
+
+class Cell: public BasicCell{
 protected:
     char type;
-    int x;
-    int y;
+    ConcreteCell* Concretecell;
 public:
     Cell();
     Cell(char type, int x, int y);
     ~Cell();
     bool isOccupied();
     bool canMove();
-    bool isStair(); 
+    bool isStair();
     void setCell(char type);
-    void setIndex(int x, int y);
     char getCellType();
-    int getX();
-    int getY();
+
+    ConcreteCell* GetConcreteCell();
+
+    void SetConcreteCell(ConcreteCell* cCell);
+
 };
 #endif //_CELL_H

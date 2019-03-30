@@ -4,7 +4,7 @@ using namespace std;
 
 Cell::Cell() {}
 
-Cell::Cell(char type, int x, int y): type{type}, x{x}, y{y} {}
+Cell::Cell(char type, int x, int y): type{type}, BasicCell(x, y) {}
 
 Cell::~Cell() {}
 
@@ -25,19 +25,15 @@ void Cell::setCell(char type) {
     this->type = type;
 }
 
-void Cell::setIndex(int x, int y) {
-    this->x = x;
-    this->y = y;
-}
 
 char Cell::getCellType() {
     return this->type;
 }
 
-int Cell::getX() {
-    return this->x;
+void Cell::SetConcreteCell(ConcreteCell *cCell) {
+    this->Concretecell = cCell;
 }
 
-int Cell::getY() {
-    return this->y;
+ConcreteCell* Cell::GetConcreteCell() {
+    return this->Concretecell;
 }
