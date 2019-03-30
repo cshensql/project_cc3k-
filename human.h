@@ -10,6 +10,6 @@ class Human final: public Hero {
         void attack(Enemy *enemy) override;
         void attackedByEnemy(Enemy *enemy) override;
         ~Human();
-}
+};
 
 #endif //_HUMAN_H

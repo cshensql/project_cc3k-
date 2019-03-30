@@ -7,6 +7,6 @@ class Small: public Treasure {
     public:
         Small();
         ~Small();
-}
+};
 
 #endif //_SMALL_H

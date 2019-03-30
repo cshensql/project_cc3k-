@@ -10,6 +10,6 @@ class Compass: public Item {
         Compass();
         void setHolder(Enemy *enemy_holder);
         ~Compass();
-}
+};
 
 #endif //_COMPASS_H

@@ -11,6 +11,6 @@ class Phoenix final: public Enemy {
         void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Phoenix();
-}
+};
 
 #endif //_PHOENIX_H

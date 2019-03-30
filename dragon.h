@@ -15,6 +15,6 @@ class Dragon final: public Enemy {
         void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Dragon();
-}
+};
 
 #endif //_DRAGON_H

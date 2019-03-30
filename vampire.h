@@ -11,6 +11,6 @@ class Vampire final: public Enemy {
         void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Vampire();
-}
+};
 
 #endif //_VAMPIRE_H

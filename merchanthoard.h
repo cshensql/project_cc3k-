@@ -7,6 +7,6 @@ class MerchantHoard: public Treasure {
     public:
         MerchantHoard();
         ~MerchantHoard();
-}
+};
 
 #endif //_MERCHANTHOARD_H

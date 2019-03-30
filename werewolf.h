@@ -11,6 +11,6 @@ class Werewolf final: public Enemy {
         void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Werewolf();
-}
+};
 
 #endif //_WEREWOLF_H

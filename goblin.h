@@ -11,6 +11,6 @@ class Goblin final: public Enemy {
         void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Goblin();
-}
+};
 
 #endif //_GOBLIN_H

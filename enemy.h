@@ -22,6 +22,6 @@ class Enemy: public Character {
         virtual void attack(Hero *hero) = 0;
         virtual void attackedByHero(Hero *hero) = 0;
         virtual ~Enemy() = 0;
-}
+};
 
 #endif //_ENEMY_H

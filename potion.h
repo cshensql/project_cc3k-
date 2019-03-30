@@ -12,6 +12,6 @@ class Potion: public Item {
         Potion();
         std::string getType();
         ~Potion();
-}
+};
 
 #endif //_POTION_H

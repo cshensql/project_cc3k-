@@ -12,6 +12,6 @@ class Merchant final: public Enemy {
         void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Merchant();
-}
+};
 
 #endif //_MERCHANT_H

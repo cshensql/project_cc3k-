@@ -26,6 +26,6 @@ class Hero: public Character {
         virtual void attack(Enemy *enemy) = 0;
         virtual void attackedByEnemy(Enemy *enemy) = 0;
         virtual ~Hero() = 0;
-}
+};
 
 #endif //_HERO_H

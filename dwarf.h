@@ -10,6 +10,6 @@ class Dwarf final: public Hero {
         void attack(Enemy *enemy) override;
         void attackedByEnemy(Enemy *enemy) override;
         ~Dwarf();
-}
+};
 
 #endif //_DWARF_H

@@ -10,6 +10,6 @@ class Elves final: public Hero {
         void attack(Enemy *enemy) override;
         void attackedByEnemy(Enemy *enemy) override;
         ~Elves();
-}
+};
 
 #endif //_ELVES_H

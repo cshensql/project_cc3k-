@@ -7,6 +7,6 @@ class Normal: public Treasure {
     public:
         Normal();
         ~Normal();
-}
+};
 
 #endif //_NORMAL_H

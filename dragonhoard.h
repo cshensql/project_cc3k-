@@ -8,6 +8,6 @@ class DragonHoard: public Treasure {
     public:
         DragonHoard();
         ~DragonHoard();
-}
+};
 
 #endif //_DRAGONHOARD_H

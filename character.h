@@ -17,5 +17,6 @@ public:
     void setAtk();
     void setDef();
     bool isAlive();
-}
+};
+
 #endif //_CHARACTER_H

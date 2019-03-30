@@ -12,6 +12,6 @@ class Treasure: public Item {
         const std::string getType();
         const int getValue();
         ~Treasure();
-}
+};
 
 #endif //_TREASURE_H 

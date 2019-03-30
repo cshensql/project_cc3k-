@@ -9,6 +9,6 @@ class Item: public Cell {
     public:
         void setFloor(Floor *floor);
         ~Item();
-}
+};
 
 #endif //_ITEM_H

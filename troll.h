@@ -11,6 +11,6 @@ class Troll final: public Enemy {
         void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Troll();
-}
+};
 
 #endif //_TROLL_H

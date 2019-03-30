@@ -8,6 +8,6 @@ class BarrierSuit: public Item {
     public:
         BarrierSuit();
         ~BarrierSuit();
-}
+};
 
 #endif //_BARRIERSUIT_H
