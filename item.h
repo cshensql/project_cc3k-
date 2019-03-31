@@ -6,7 +6,7 @@
 #include "Floor.h"
 
 class Item: public ConcreteCell {    
-     public:
+    public:
         virtual ~Item() = 0;
 };
 
