@@ -7,8 +7,6 @@
 class Human final: public Hero {
     public:
         Human();
-        void attack(Enemy *enemy) override;
-        void attackedByEnemy(Enemy *enemy) override;
         ~Human();
 };
 
