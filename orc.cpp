@@ -3,13 +3,11 @@
 using namespace std;
 
 Orc::Orc() {
-    hp = 180;
-    atk = 30;
-    def = 25;
-    maxHp = 180;
-    race = "Orc";
-    goldNum = 0;
-    hasBarrier = false;
+    setHp(180);
+    setAtk(30);
+    setDef(25);
+    setRace("Orc");
+    setMaxHp(180);
 }
 
 Orc::Orc() {}

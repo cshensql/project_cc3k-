@@ -3,13 +3,11 @@
 using namespace std;
 
 Dwarf::Dwarf() {
-    hp = 100;
-    atk = 20;
-    def = 30;
-    maxHp = 100;
-    race = "Dwarf";
-    goldNum = 0;
-    hasBarrier = false;
+    setHp(100);
+    setAtk(20);
+    setDef(30);
+    setRace("Dwarf");
+    setMaxHp(100);
 }
 
 Dwarf::~Dwarf() {}
