@@ -1,9 +1,9 @@
 #include "normal.h"
 
 Normal::Normal(){
-    this.setValue(1);
-    this.setType("normal");
-    this.setState(false);
+    setValue(1);
+    setType("normal");
+    setState(false);
 }
 
 Normal::~Normal () {}

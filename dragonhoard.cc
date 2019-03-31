@@ -2,9 +2,9 @@
 
 DragonHoard::DragonHoard() {
     pickable = false;
-    this.setValue(6);
-    this.setType("dragon");
-    this.setState(false);
+    setValue(6);
+    setType("dragon");
+    setState(false);
 }
 
 DragonHoard::~DragonHoard() {}

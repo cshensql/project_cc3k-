@@ -1,6 +1,8 @@
 #include "barriersuit.h"
 
-using namespace std;
+char BarrierSuit::GetType() const override {
+    return 'B';
+}
 
 BarrierSuit::BarrierSuit():pickable {false} {}
 

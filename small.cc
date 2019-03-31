@@ -1,9 +1,9 @@
 #include "small.h"
 
 Small::Small() {
-    this.setValue(2);
-    this.setState(false);
-    this.setType("small");
+    setValue(2);
+    setState(false);
+    setType("small");
 }
 
 Small::~Small() {}
