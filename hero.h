@@ -13,7 +13,6 @@ class Hero: public Character {
         bool hasBarrier;
         Floor *floor = nullptr;
     public:
-        Hero();
         std::string getRace();
         int getGold();
         void usePotion(Potion *potion);
