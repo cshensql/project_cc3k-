@@ -3,9 +3,10 @@
 
 #include "item.h"
 #include "ConcreteCell.h"
+#include "Floor.h"
 
-class Item: public ConcreteCell {
-    public:
+class Item: public ConcreteCell {    
+     public:
         virtual ~Item() = 0;
 };
 
