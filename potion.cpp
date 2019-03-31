@@ -4,12 +4,24 @@ using namespace std;
 
 Potion::Potion(std::string potion_type): type{potion_type} {}
 
+char Potion::GetType() const {
+    return 'P';
+}
+
 string Potion::getType() const {
     return this->type;
 }
 
-void potionDrunk() {
+bool Potion::getIsUsed() const {
+    return isUsed;
+}
+
+void Potion::setUsed() {
     this->isUsed = true;
+}
+
+bool Potion::getPermanentEffect() const {
+    return permanentEffect;
 }
 
 Potion::~Potion() {}
