@@ -7,8 +7,6 @@
 class Orc final: public Hero {
     public:
         Orc();
-        void attack(Enemy *enemy) override;
-        void attackedByEnemy(Enemy *enemy) override;
         ~Orc();
 };
 

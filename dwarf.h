@@ -7,8 +7,6 @@
 class Dwarf final: public Hero {
     public:
         Dwarf();
-        void attack(Enemy *enemy) override;
-        void attackedByEnemy(Enemy *enemy) override;
         ~Dwarf();
 };
 
