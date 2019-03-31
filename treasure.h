@@ -5,13 +5,17 @@
 #include "item.h"
 
 class Treasure: public Item {
-        const int value;
+        int value;
         std::string type;
         bool picked;
     public:
-        const std::string getType();
-        const int getValue();
-        ~Treasure();
+        std::string getType const();
+	void setType(std::string typename);
+        int getValue const();
+	void setValue(int amount);
+	bool getState();
+	void setState(bool picked);
+        virtual ~Treasure() = 0;
 };
 
 #endif //_TREASURE_H 
