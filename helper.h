@@ -8,6 +8,7 @@
 #include <cmath>
 
 class helper {
+    public:
     static std::vector<std::vector<char>> readMap(std::string filename);
     static int random(int max);
     int findX(int current_x, std::string direction);
