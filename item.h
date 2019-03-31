@@ -3,8 +3,9 @@
 
 #include "item.h"
 #include "ConcreteCell.h"
+#include "Floor.h"
 
-class Item: public ConcreteCell {
+class Item: public ConcreteCell {    
     public:
         virtual ~Item() = 0;
 };
