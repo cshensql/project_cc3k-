@@ -1,5 +1,4 @@
 #include "human.h"
-#include <math.h>
 
 using namespace std;
 
