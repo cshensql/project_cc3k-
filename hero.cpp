@@ -8,12 +8,6 @@
 
 using namespace std;
 
-        std::string race; //first letter is uppercase
-        int maxHp;
-        int goldNum;
-        bool hasBarrier;
-        Floor *floor = nullptr;
-
 char Hero::GetType() const {
     return '@';
 }
