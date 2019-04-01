@@ -4,34 +4,34 @@ using namespace std;
 
 Character::~Character() {}
 
-int Cell::getHp() const {
+int Character::getHp() const {
     return this->hp;
 }
 
-int Cell::getMaxHp() {
+int Character::getMaxHp() {
     return this->maxHp;
 }
 
-int Cell::getAtk() const {
+int Character::getAtk() const {
     return this->atk;
 }
 
-int Cell::getDef() const {
+int Character::getDef() const {
     return this->def;
 }
 
-void Cell::setHp(int Hp) {
+void Character::setHp(int Hp) {
     this->hp = Hp;
 }
     
-void Cell::setAtk(int Atk) {
+void Character::setAtk(int Atk) {
     this->atk = Atk;
 }
     
-void Cell::setDef(int Def) {
+void Character::setDef(int Def) {
     this->def = Def;
 }
     
-bool Cell::isAlive() const {
-    return (this->hp <= 0);
+bool Character::isAlive() const {
+    return (this->hp > 0);
 }
