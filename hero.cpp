@@ -43,17 +43,18 @@ void Hero::addBarrier() {
 void Hero::setFloor(Floor *f) {
     this->floor = f;
 }
- 
+
 void Hero::move(string direction) {
     int X = getX();
     int Y = getY();
+    Cell origin_cell = floor->getCell(X, Y);
     X = helper::findX(X, direction);
     Y = helper::findY(Y, direction);
-    Cell *c = floor->getCell(X, Y);
-    if (c->canMove()) {
-        setX(X);
-        setY(Y);
-    }
+    Cell new_cell = floor->getCell(X, Y);
+    if (!new_cell->canMove()) { return; }
+    ConcreteCell *ccell = origin_cell.GetConcreteCell();
+    new_cell.SetConcreteCell(ccell);
+    origin_cell.deleteConcrete();
 }
         
 Potion *Hero::pickPotion(string direction) {
