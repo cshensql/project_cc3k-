@@ -24,6 +24,7 @@
 #include "potion.h"
 #include "ConcreteCell.h"
 #include "BasicCell.h"
+#include "helper.h"
 
 using namespace std;
 
@@ -103,7 +104,7 @@ int main() {
                 }
                 hero->move(command);
                 if (hero->GetType() == '\\') {
-                    f->updataCurFloor();
+                    f->updateCurFloor();
                     if (f->getCurrentFloor() == 6) {
                         cout << "Congradulations, you win the game!" << endl;
                         int score;
@@ -146,7 +147,7 @@ int main() {
                 directions.emplace_back("se");
                 directions.emplace_back("sw");
                 for (string s : directions) {
-                    Cell c = f->getCell(Helper::findX(hero->getX(), s), Helper::findY(hero->getY(), s));
+                    Cell c = f->getCell(helper::findX(hero->getX(), s), helper::findY(hero->getY(), s));
                     ConcreteCell *ccell = c.GetConcreteCell();
                     if (ccell->GetType() == 'P') {
                         Potion *p = dynamic_cast<Potion *>(ccell);
@@ -199,13 +200,13 @@ int main() {
                 for (string s : neighbours) {
                     Potions += s + "";
                 }
-                if (unknown_potion && Potions) {
+                if (unknown_potion && Potions != "") {
                     display->updateAction("PC moves " + move_dir + "and sees " + Potions + "and unknown potions.");
                 }
                 else if (unknown_potion) {
                     display->updateAction("PC moves " + move_dir + "and sees " +  "an unknown potion.");
                 }
-                else if (Potions && !unknown_potion) {
+                else if (Potions != "" && !unknown_potion) {
                     display->updateAction("PC moves " + move_dir + "and sees " + Potions + "potions.");
                 }
                 else {
@@ -271,7 +272,7 @@ int main() {
                     f->nextTurn();
                     int damageTaken = heroHp - hero->getHp();
                     display->updateAction("PC deals " + to_string(damage) + " damage to " + enemy->getType() + " ("
-                        + to_string(enemy_Hp) + " HP). " + enemy->getType() + " deals " + to_string(damageTaken) + " to PC.");
+                        + to_string(enemyHp) + " HP). " + enemy->getType() + " deals " + to_string(damageTaken) + " to PC.");
                     display->updateHeroInfo(hero);
                     display->render();
                     continue;

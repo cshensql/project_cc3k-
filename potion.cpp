@@ -2,7 +2,9 @@
 
 using namespace std;
 
-Potion::Potion(std::string potion_type): type{potion_type} {}
+Potion::Potion() {}
+
+Potion::Potion(string potion_type): type{potion_type} {}
 
 char Potion::GetType() const {
     return 'P';

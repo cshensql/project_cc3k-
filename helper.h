@@ -6,13 +6,14 @@
 #include <fstream>
 #include <vector>
 #include <cmath>
+#include <cstdlib>
 
 class helper {
-    public:
+public:
     static std::vector<std::vector<char>> readMap(std::string filename);
     static int random(int max);
-    int findX(int current_x, std::string direction);
-    int findY(int current_y, std::string direction);
+    static int findX(int current_x, std::string direction);
+    static int findY(int current_y, std::string direction);
 };
 
 

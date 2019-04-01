@@ -10,6 +10,7 @@ class Potion: public Item {
         bool permanentEffect = false;
     public:
         Potion();
+        Potion(std::string potion_type);
         char GetType() const override;
         std::string getType() const;
         bool getIsUsed() const;

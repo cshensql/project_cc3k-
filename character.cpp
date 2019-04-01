@@ -1,3 +1,4 @@
+#include <iostream>
 #include "character.h"
 
 using namespace std;
@@ -6,10 +7,6 @@ Character::~Character() {}
 
 int Character::getHp() const {
     return this->hp;
-}
-
-int Character::getMaxHp() {
-    return this->maxHp;
 }
 
 int Character::getAtk() const {

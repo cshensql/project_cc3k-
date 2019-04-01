@@ -60,12 +60,12 @@ void Hero::move(string direction) {
 Potion *Hero::pickPotion(string direction) {
     int X = getX();
     int Y = getY();
-    X = Helper::findX(X, direction);
-    Y = Helper::findY(Y, direction);
+    X = helper::findX(X, direction);
+    Y = helper::findY(Y, direction);
     Cell c = floor->getCell(X, Y);
     char cell_type = c.getCellType();
     if (cell_type == 'P') {
-        ConcreteCell *conc = GetConcreteCell();
+        ConcreteCell *conc = c.GetConcreteCell();
         Potion *potion = dynamic_cast<Potion *>(conc);
         if (potion->getIsUsed()) {
             return potion;
@@ -109,12 +109,12 @@ Potion *Hero::pickPotion(string direction) {
 void Hero::pickGold(string direction) {
     int X = getX();
     int Y = getY();
-    X = Helper::findX(X, direction);
-    Y = Helper::findY(Y, direction);
+    X = helper::findX(X, direction);
+    Y = helper::findY(Y, direction);
     Cell c = floor->getCell(X, Y);
     char cell_type = c.getCellType();
     if (cell_type == 'G') {
-        ConcreteCell *conc = GetConcreteCell();
+        ConcreteCell *conc = c.GetConcreteCell();
         Treasure *gold = dynamic_cast<Treasure *>(conc);
         goldNum += gold->getValue();
     }
@@ -123,8 +123,8 @@ void Hero::pickGold(string direction) {
 void Hero::pickCompass(string direction) {
     int X = getX();
     int Y = getY();
-    X = Helper::findX(X, direction);
-    Y = Helper::findY(Y, direction);
+    X = helper::findX(X, direction);
+    Y = helper::findY(Y, direction);
     Cell c = floor->getCell(X, Y);
     char cell_type = c.getCellType();
     if (cell_type == 'C') {
@@ -135,13 +135,13 @@ void Hero::pickCompass(string direction) {
 Enemy *Hero::attackDir(string direction) {
     int X = getX();
     int Y = getY();
-    X = Helper::findX(X, direction);
-    Y = Helper::findY(Y, direction);
+    X = helper::findX(X, direction);
+    Y = helper::findY(Y, direction);
     Cell c = floor->getCell(X, Y);
     char cell_type = c.getCellType();
     if (cell_type == 'V' || cell_type == 'W' || cell_type == 'N' ||
     cell_type == 'M' || cell_type == 'D' || cell_type == 'X' || cell_type == 'T') {
-        ConcreteCell *conc = GetConcreteCell();
+        ConcreteCell *conc = c.GetConcreteCell();
         Enemy *enemy = dynamic_cast<Enemy *>(conc);
         return enemy;
     }

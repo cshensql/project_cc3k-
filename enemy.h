@@ -5,6 +5,9 @@
 #include "floor.h"
 #include "hero.h"
 
+class Hero;
+class Floor;
+
 class Enemy: public Character {
     protected:
         char type;

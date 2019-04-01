@@ -20,7 +20,7 @@ void Treasure::setValue (int amount) {
     value = amount;
 }
 
-bool Treasure::getState const() {
+bool Treasure::getState() const {
     return picked;
 }
 
