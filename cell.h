@@ -10,7 +10,7 @@ class ConcreteCell;
 class Cell: public BasicCell{
 protected:
     char type;
-    ConcreteCell* Concretecell;
+    ConcreteCell* Concretecell = nullptr;
 public:
     Cell();
     Cell(char type, int x, int y);
@@ -25,6 +25,5 @@ public:
     ConcreteCell* GetConcreteCell();
 
     void SetConcreteCell(ConcreteCell* cCell);
-
 };
 #endif //_CELL_H

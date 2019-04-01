@@ -14,7 +14,7 @@ class Treasure;
 
 class Floor {
     Hero *hero;
-    int currentFloor;
+    int currentFloor = 1;
     static const int col = 79;
     static const int row = 30;
     std::vector<std::vector<Cell>> cells;
@@ -25,14 +25,16 @@ class Floor {
 public:
     Floor(Hero *hero);
     ~Floor();
+    void clear();
     void init();
     void initHero(int chamberInd);
     void initEnemies();
     void initPotions();
     void initTreasures();
     void initStairs(int chamberIndex);
-    void updataCurFloor();
+    void updateCurFloor();
     int getCurrentFloor();
+    Hero *getHero();
     void nextTurn();
     Cell &getCell(int x, int y);
 };

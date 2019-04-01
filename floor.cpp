@@ -27,6 +27,27 @@ Floor::~Floor() {
     chambers.clear();
 }
 
+void Floor::clear() {
+    delete hero;
+    for(Enemy *e : enemies) {
+        if(e) delete e;
+    }
+    for(Potion *p : potions) {
+        if(p) delete p;
+    }
+    for(Treasure *t : treasures) {
+        if(t) delete t;
+    }
+    for(Chamber *c : chambers) {
+        if(c) delete c;
+    }
+    cells.clear();
+    enemies.clear();
+    potions.clear();
+    treasures.clear();
+    chambers.clear();
+}
+
 // generate random chamber for hero, stairs
 void Floor::init() {
     vector<vector<char>> map;
@@ -249,13 +270,17 @@ void Floor::initStairs(int chamberIndex) {
     }
 }
 
-void Floor::updataCurFloor() {
+void Floor::updateCurFloor() {
     this->currentFloor++;
 }
 
 
 int Floor::getCurrentFloor() {
     return this->currentFloor;
+}
+
+Hero *Floor::getHero() {
+    return this->hero;
 }
 
 void Floor::nextTurn() {
