@@ -92,16 +92,24 @@ int main() {
             if(command == "no" || command == "so" || command == "ea" || command == "we" ||
                     command == "ne" || command == "nw" || command == "se" || command == "sw") {
                 string move_dir;
-                switch (dir) {
-                case "no": move_dir = "North";
-                case "so": move_dir = "South";
-                case "ea": move_dir = "East";
-                case "we": move_dir = "West";
-                case "ne": move_dir = "Northeast";
-                case "nw": move_dir = "Northwest";
-                case "se": move_dir = "Southeast";
-                case "sw": move_dir = "Southwest";
+                if(dir == "no") {
+                    move_dir = "North";
+                } else if(dir == "so") {
+                    move_dir = "South"；
+                } else if(dir == "ea") {
+                    move_dir = "East";
+                } else if(dir == "we") {
+                    move_dir = "West";
+                } else if(dir == "ne") {
+                    move_dir = "Northeast";
+                } else if(dir == "nw") {
+                    move_dir = "Northwest";
+                } else if(dir == "se") {
+                    move_dir = "Southeast";
+                } else if(dir == "sw") {
+                    move_dir = "Southwest";
                 }
+
                 hero->move(command);
                 if (hero->GetType() == '\\') {
                     f->updateCurFloor();
@@ -245,13 +253,18 @@ int main() {
                     }
                     string p_type = p->getType();
                     if (p && p->getIsUsed()) {
-                        switch (p_type) {
-                            case "RH": RH_found = true;
-                            case "BA": BA_found = true;
-                            case "BD": BD_found = true;
-                            case "PH": PH_found = true;
-                            case "WA": WA_found = true;
-                            case "WD": WD_found = true;
+                        if(p_type == "RH") {
+                            RH_found = true;
+                        } else if(p_type == "BA") {
+                            BA_found = true;
+                        } else if(p_type == "BD") {
+                            BD_found = true;
+                        } else if(p_type == "PH") {
+                            PH_found = true;
+                        } else if(p_type == "WA") {
+                            WA_found = true;
+                        } else if(p_type == "WD") {
+                            WD_found = true;
                         }
                     }
                     display->updateAction("PC uses " + p_type + ".");
