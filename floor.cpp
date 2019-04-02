@@ -124,8 +124,9 @@ void Floor::initHero(int chamberIndex) {
 }
 
 void Floor::initEnemies() {
-    int index, x, y, chamberIndex, chamberSize, enemyType = 0;
+    int index, x, y, chamberIndex, chamberSize, enemyType, compass = 0;
     char enemyName;
+    bool has_compass;
 
     for(int i = 0; i < 20; i++) {
         while(true) {
@@ -162,7 +163,13 @@ void Floor::initEnemies() {
                     case 17:
                         enemyName = 'M';
                 }
-                Enemy *e = Enemy::createEnemy(enemyName);
+                compass = helper::random(20);
+                if(compass == 0) {
+                    has_compass = true;
+                } else {
+                    has_compass = false;
+                }
+                Enemy *e = Enemy::createEnemy(enemyName, has_compass);
                 e->setX(x);
                 e->setY(y);
                 e->setHero(this->hero);
