@@ -29,7 +29,6 @@ class Hero: public Character {
         void pickCompass(std::string direction);
         Enemy *attackDir(std::string direction);
         int attack(Enemy *enemy);
-        int attackedByEnemy(Enemy *enemy);
         virtual ~Hero() = 0;
 };
 

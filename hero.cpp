@@ -156,22 +156,6 @@ int Hero::attack(Enemy *enemy) {
     enemy->setHp(enemy->getHp() - damage);
     return damage;
 }
-
-int Hero::attackedByEnemy(Enemy *enemy) {
-    int miss_random = helper::random(2);
-    if (miss_random == 0) {
-        return;
-    }
-    int damage = helper::ceiling((100 / (100 + def)) * enemy->getAtk());
-    if (hasBarrier) {
-        damage = ceil(damage / 2);
-    }
-    if (hp <= damage) {
-        hp = 0;
-    } else {
-        hp = hp - damage;
-    }
-}
         
 Hero::~Hero() {
     delete floor;
