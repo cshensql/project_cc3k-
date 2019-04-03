@@ -276,6 +276,7 @@ void Floor::initTreasures() {
 
                 //generate a dragon in the dragon hoard's neighbor
                 if(treasureName == "dragon hoard") {
+                    DragonHoard *dh = dynamic_cast<DragonHoard *> (t);
                     bool dragon_born = false;
                     while(!dragon_born) {
                         vector<string> directions;
@@ -288,17 +289,20 @@ void Floor::initTreasures() {
                         directions.emplace_back("se");
                         directions.emplace_back("sw");
                         int dragon = helper::random(8); //0-7
-                        int count, newx, newy = 0;
+                        int count = 0;
+                        int newx = 0;
+                        int newy = 0;
                         for (string s : directions) {
                             newx = helper::findX(x, s);
                             newy = helper::findY(y, s);
                             if(count == dragon && !this->getCell(newx, newy).isOccupied()) {
                                 Enemy *e = new Dragon();
-                                e->setX(newx);
-                                e->setY(newy);
-                                e->setHero(this->hero);
-                                e->setFloor(this);
-                                e->setDragonHoard(t);
+                                Dragon *d = dynamic_cast<Dragon *> (e);
+                                d->setX(newx);
+                                d->setY(newy);
+                                d->setHero(this->hero);
+                                d->setFloor(this);
+                                d->setDragonHoard(dh);
                                 this->enemies.push_back(e);
                                 this->getCell(newx,newy).SetConcreteCell(e);
                                 e->SetCell(&this->getCell(newx, newy));
