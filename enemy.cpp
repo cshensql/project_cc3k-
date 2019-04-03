@@ -37,7 +37,7 @@ void Enemy::moveNext() {
 		for (int j = enemy_y - 1; j <= enemy_y + 1; ++j) {
 			if (i == enemy_x && j == enemy_y) { continue; }
 			Cell neighbour_cell = floor->getCell(i, j);
-			if (neighbour_cell->isOccupied()) { return; }
+			if (neighbour_cell.isOccupied()) { return; }
 			moveable_cells.emplace_back(neighbour_cell);
 		}
 	}
@@ -54,9 +54,11 @@ void Enemy::attack() {
 	if (miss_random == 0) {
 		return;
 	}
-	int damage = helper::ceiling((100 / (100 + hero->getDef())) * getAtk());
+	double damage = ceil((100 / (100 + hero->getDef())) * getAtk());
+	//int damage = helper::ceiling((100 / (100 + hero->getDef())) * getAtk());
 	if (hero->carryBarrier()) {
-		damage = helper::ceiling(damage / 2);
+		damage = ceil(damage / 2);
+		//damage = helper::ceiling(damage / 2);
 	}
 	if (hero->getHp() <= damage) {
 		damage = hero->getHp();
