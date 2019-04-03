@@ -83,23 +83,43 @@ Potion *Hero::pickPotion(string direction) {
         } else if (potion_type == "BD") {
             def += 5;
         } else if (potion_type == "PH") {
-            if (hp > 10) {
-                hp -= 10;
-            } else {
-                hp = 0;
-            }
+			if (race == "Elves") {
+				if (hp + 10 < maxHp) {
+					hp += 10;
+				}
+				else {
+					hp = maxHp;
+				}
+			} else {
+				if (hp > 10) {
+					hp -= 10;
+				}
+				else {
+					hp = 0;
+				}
+			}
         } else if (potion_type == "WA") {
-            if (atk > 5) {
-                atk -= 5;
-            } else {
-                atk = 0;
-            }
+			if (race == "Elves") {
+				atk += 5;
+			} else {
+				if (atk > 5) {
+					atk -= 5;
+				}
+				else {
+					atk = 0;
+				}
+			}
         } else if (potion_type == "WD") {
-            if (def > 5) {
-                def -= 5;
-            } else {
-                def = 0;
-            }
+			if (race == "Elves") {
+				def += 5;
+			} else {
+				if (def > 5) {
+					def -= 5;
+				}
+				else {
+					def = 0;
+				}
+			}
         }
         return potion;
     }
@@ -116,7 +136,13 @@ void Hero::pickGold(string direction) {
     if (cell_type == 'G') {
         ConcreteCell *conc = c.GetConcreteCell();
         Treasure *gold = dynamic_cast<Treasure *>(conc);
-        goldNum += gold->getValue();
+		if (race == "Dwarf") {
+			goldNum += 2 * gold->getValue();
+		} else if (race == "Elves") {
+			goldNum += gold->getValue() / 2;
+		} else {
+			goldNum += gold->getValue();
+		}
     }
 }
         
