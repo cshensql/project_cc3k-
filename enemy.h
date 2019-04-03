@@ -19,9 +19,9 @@ class Enemy: public Character {
         Enemy *createEnemy(char enemy_type, bool has_compass);
         void setHero(Hero *hero);
         void setFloor(Floor *floor);
-        char getType();
+        char getType() const;
         void moveNext();
-        void attack(Hero *hero);
+        void attack();
 		virtual const int dropGold() = 0;
         virtual ~Enemy() = 0;
 };

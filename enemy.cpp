@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Enemy *Enemy::createEnemy(char enemy_type, bool_haspass) {
+Enemy *Enemy::createEnemy(char enemy_type, bool bool_haspass) {
     this->type = enemy_type;
 	this->hasCompass = bool_haspass;
 	switch (type) {
