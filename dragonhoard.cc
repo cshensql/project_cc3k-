@@ -3,7 +3,7 @@
 DragonHoard::DragonHoard() {
     pickable = false;
     setValue(6);
-    setType("dragon");
+    setType("dragon hoard");
     setState(false);
 }
 

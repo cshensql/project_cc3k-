@@ -2,8 +2,8 @@
 
 MerchantHoard::MerchantHoard() {
     setValue(4);
-    setType("merchant");
+    setType("merchant hoard");
     setState(false);
 }
 
-MercharntHoard::~MerchantHoard() {}
+MerchantHoard::~MerchantHoard() {}
