@@ -163,13 +163,8 @@ void Floor::initEnemies() {
                     case 17:
                         enemyName = 'M';
                 }
-                compass = helper::random(20);
-                if(compass == 0) {
-                    has_compass = true;
-                } else {
-                    has_compass = false;
-                }
-                Enemy *e = Enemy::createEnemy(enemyName, has_compass);
+
+                Enemy *e = Enemy::createEnemy(enemyName);
                 e->setX(x);
                 e->setY(y);
                 e->setHero(this->hero);
@@ -181,6 +176,8 @@ void Floor::initEnemies() {
             }
         }
     }
+    compass = helper::random(20);
+    this->enemies[compass]->setCompass(true);
 }
 
 
