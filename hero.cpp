@@ -5,6 +5,7 @@
 #include "treasure.h"
 #include "compass.h"
 #include "helper.h"
+#include "merchant.h"
 
 using namespace std;
 
@@ -179,11 +180,16 @@ Enemy *Hero::attackDir(string direction) {
 
 int Hero::attack(Enemy *enemy) {
     if (!enemy) { return 0; }
-    int damage = helper::ceiling((100 / (100 + enemy->getDef())) * atk);
+    int damage = ceil((100 / (100 + enemy->getDef())) * atk);
+    //int damage = helper::ceiling((100 / (100 + enemy->getDef())) * atk);
     if (enemy->getHp() <= damage) {
         damage = getHp();
     }
     enemy->setHp(enemy->getHp() - damage);
+    if(enemy->getType() == 'M') {
+        enemy = dynamic_cast<Merchant *> (enemy);
+        enemy->setHostile(true);
+    }
     return damage;
 }
         
