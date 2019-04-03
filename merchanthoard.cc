@@ -1,9 +1,7 @@
 #include "merchanthoard.h"
 
-MerchantHoard::MerchantHoard() {
+MerchantHoard::MerchantHoard(): Treasure("merchant hoard") {
     setValue(4);
-    setType("merchant hoard");
-    setState(false);
 }
 
 MerchantHoard::~MerchantHoard() {}

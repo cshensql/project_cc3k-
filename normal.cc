@@ -1,9 +1,7 @@
 #include "normal.h"
 
-Normal::Normal(){
+Normal::Normal(): Treasure("normal"){
     setValue(1);
-    setType("normal");
-    setState(false);
 }
 
 Normal::~Normal () {}

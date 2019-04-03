@@ -1,10 +1,8 @@
 #include "dragonhoard.h"
 
-DragonHoard::DragonHoard() {
+DragonHoard::DragonHoard(): Treasure("dragon hoard") {
     pickable = false;
     setValue(6);
-    setType("dragon hoard");
-    setState(false);
 }
 
 DragonHoard::~DragonHoard() {}

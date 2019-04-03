@@ -9,13 +9,14 @@ class Treasure: public Item {
         std::string type;
         bool picked;
     public:
+		Treasure(std::string type);
         std::string getType () const;
         char GetType() override const;
-	void setType(std::string typename);
+	    void setType(std::string typename);
         int getValue() const;
-	void setValue(int amount);
-	bool getState() const;
-	void setState(bool picked);
+	    void setValue(int amount);
+	    bool getState() const;
+	    void setState(bool picked);
         virtual ~Treasure() = 0;
 };
 

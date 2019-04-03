@@ -1,9 +1,7 @@
 #include "small.h"
 
-Small::Small() {
+Small::Small(): Treasure("small horde") {
     setValue(2);
-    setState(false);
-    setType("small horde");
 }
 
 Small::~Small() {}

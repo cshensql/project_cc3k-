@@ -1,6 +1,14 @@
+#include <iostream>
 #include "treasure.h"
+#include "normal.h"
+#include "small.h"
+#include "merchanthoard.h"
+#include "dragonhoard.h"
+using namespace std;
 
-std::string Treasure::getType() const{
+Treasure::Treasure(string type): type{type}, picked{false} {}
+
+string Treasure::getType() const{
     return type;
 }
 
