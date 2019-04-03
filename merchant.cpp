@@ -2,12 +2,6 @@
 #include "merchanthoard.h"
 using namespace std;
 
-	static bool isHostile;
-public:
-	Merchant();
-	const int dropGold() override;
-	~Merchant();
-
 Merchant::Merchant() {
 	type = 'M';
 	hasCompass = false;

@@ -1,10 +1,3 @@
-DragonHoard *dragonH = nullptr;
-BarrierSuit *barrierS = nullptr;
-	public:
-		Dragon();
-		int dropGold() const override;
-		~Dragon();
-
 # include "dragon.h"
 using namespace std;
 
