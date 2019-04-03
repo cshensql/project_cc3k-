@@ -2,6 +2,18 @@
 #include "floor.h"
 #include "potion.h"
 #include "helper.h"
+#include "treasure.h"
+#include "normal.h"
+#include "small.h"
+#include "merchanthoard.h"
+#include "dragonhoard.h"
+#include "goblin.h"
+#include "vampire.h"
+#include "werewolf.h"
+#include "troll.h"
+#include "merchant.h"
+#include "dragon.h"
+#include "phoenix.h"
 using namespace std;
 
 Floor::Floor(Hero *hero): hero{hero} {}
@@ -135,6 +147,7 @@ void Floor::initEnemies() {
             chamberSize = this->chambers[chamberIndex]->getSize();
             x = this->chambers[chamberIndex]->getCells()[index].getX();
             y = this->chambers[chamberIndex]->getCells()[index].getY();
+            Enemy *e;
             if(!this->getCell(x, y).isOccupied()) {
                 enemyType = helper::random(18);
                 switch(enemyType) {
@@ -143,28 +156,32 @@ void Floor::initEnemies() {
                     case 2:
                     case 3:
                         enemyName = 'W';
+                        e = new Werewolf();
                     case 4:
                     case 5:
                     case 6:
                         enemyName = 'V';
+                        e = new Vampire();
                     case 7:
                     case 8:
                     case 9:
                     case 10:
                     case 11:
                         enemyName = 'N';
+                        e = new Goblin();
                     case 12:
                     case 13:
                         enemyName = 'T';
+                        e = new Troll();
                     case 14:
                     case 15:
                         enemyName = 'X';
+                        e = new Phoenix();
                     case 16:
                     case 17:
                         enemyName = 'M';
+                        e = new Merchant();
                 }
-
-                Enemy *e = Enemy::createEnemy(enemyName);
                 e->setX(x);
                 e->setY(y);
                 e->setHero(this->hero);
@@ -232,6 +249,7 @@ void Floor::initTreasures() {
             chamberSize = this->chambers[chamberIndex]->getSize();
             x = this->chambers[chamberIndex]->getCells()[index].getX();
             y = this->chambers[chamberIndex]->getCells()[index].getY();
+            Treasure *t;
             if(!this->getCell(x, y).isOccupied()) {
                 treasureType = helper::random(8);
                 switch(treasureType) {
@@ -241,13 +259,15 @@ void Floor::initTreasures() {
                     case 3:
                     case 4:
                         treasureName = "normal";
+                        t = new Normal();
                     case 5:
                         treasureName = "dragon hoard";
+                        t = new DragonHoard();
                     case 6:
                     case 7:
                         treasureName = "small hoard";
+                        t = new Small();
                 }
-                Treasure *t = Treasure::createTreasure(treasureName);
                 t->setX(x);
                 t->setY(y);
                 this->treasures.push_back(t);
@@ -273,7 +293,7 @@ void Floor::initTreasures() {
                             newx = helper::findX(x, s);
                             newy = helper::findY(y, s);
                             if(count == dragon && !this->getCell(newx, newy).isOccupied()) {
-                                Enemy *e = Enemy::createEnemy('D');
+                                Enemy *e = new Dragon();
                                 e->setX(newx);
                                 e->setY(newy);
                                 e->setHero(this->hero);
@@ -328,14 +348,15 @@ void Floor::nextTurn() {
         if(enemies[i] && !enemies[i]->isAlive()) {
             enemies[i]->GetCell()->deleteConcrete();
             int goldNum = enemies[i]->dropGold();
+            Treasure *t;
             if(goldNum == 1) {
-                Treasure *t = Treasure::CreateTreasure("normal");
+                t = new Normal();
             } else if(goldNum == 2) {
-                Treasure *t = Treasure::CreateTreasure("small horde");
+                t = new Small();
             } else if(goldNum == 4) {
-                Treasure *t = Treasure::CreateTreasure("merchant hoard");
+                t = new MerchantHoard();
             } else if(goldNum == 6) {
-                Treasure *t = Treasure::CreateTreasure("dragon hoard");
+                t = new DragonHoard();
             }
             enemies[i]->GetCell()->SetConcreteCell(t);
             this->treasures.push_back(t);
