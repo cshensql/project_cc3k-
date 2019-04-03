@@ -17,7 +17,7 @@ string Hero::getRace() const {
     return this->race;
 }
         
-int Hero::getGold() const {
+double Hero::getGold() const {
     return this->goldNum;
 }
 
@@ -37,7 +37,7 @@ void Hero::setMaxHp(int max_hp) {
     this->maxHp = max_hp;
 }
 
-void Hero::setGoldNum(int gold_num) {
+void Hero::setGoldNum(double gold_num) {
     this->goldNum = gold_num;
 }
 
@@ -165,6 +165,18 @@ void Hero::pickCompass(string direction) {
     }
 }
 
+void Hero::pickBarrierSuit(string direction) {
+    int X = getX();
+    int Y = getY();
+    X = helper::findX(X, direction);
+    Y = helper::findY(Y, direction);
+    Cell c = floor->getCell(X, Y);
+    char cell_type = c.getCellType();
+    if (cell_type == 'B') {
+        this->hasBarrier = true;
+    }
+}
+
 Enemy *Hero::attackDir(string direction) {
     int X = getX();
     int Y = getY();
@@ -189,7 +201,6 @@ double Hero::attack(Enemy *enemy) {
     }
     enemy->setHp(enemy->getHp() - damage);
     if(enemy->getType() == 'M') {
-        enemy = dynamic_cast<Merchant *> (enemy);
         enemy->setHostile(true);
     }
     return damage;

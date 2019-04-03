@@ -7,7 +7,7 @@ Vampire::Vampire() {
 	moveable = true;
 }
 
-int Vampire::dropGold() const {
+double Vampire::dropGold() const {
 	return 1;
 }
 

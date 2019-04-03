@@ -8,7 +8,7 @@ class Troll final: public Enemy {
     static bool isHostile;
     public:
         Troll();
-        int dropGold() const override;
+        double dropGold() const override;
         void setHostile(bool isHostile) override ;
         bool getHostile() const override ;
         ~Troll();

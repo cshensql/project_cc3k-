@@ -12,7 +12,7 @@ class Dragon final: public Enemy {
         static bool isHostile;
     public:
         Dragon();
-        int dropGold() const override;
+        double dropGold() const override;
         void setDragonHoard(DragonHoard *dragon_hoard);
         void setBarrierSuit(BarrierSuit *barrier_suit);
         void setHostile(bool isHostile) override;

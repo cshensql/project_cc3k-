@@ -9,8 +9,8 @@ Merchant::Merchant() {
 	isHostile = false;
 }
 
-int Merchant::dropGold() const {
-	MerchantHoard *merchant_hoard = new MerchantHoard();
+double Merchant::dropGold() const {
+	MerchantHoard *merchant_hoard {};
 	Cell *current_cell = GetCell();
 	current_cell->deleteConcrete();
 	current_cell->SetConcreteCell(merchant_hoard);

@@ -7,7 +7,7 @@ Goblin::Goblin() {
 	moveable = true;
 }
 
-int Goblin::dropGold() const{
+double Goblin::dropGold() const{
 	return 1;
 }
 

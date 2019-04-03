@@ -7,7 +7,7 @@ Werewolf::Werewolf() {
 	moveable = true;
 }
 
-int Werewolf::dropGold() const {
+double Werewolf::dropGold() const {
 	return 1;
 }
 

@@ -8,7 +8,7 @@ class Werewolf final: public Enemy {
     static bool isHostile;
     public:
         Werewolf();
-        int dropGold() const override;
+        double dropGold() const override;
         void setHostile(bool isHostile) override ;
         bool getHostile() const override ;
         ~Werewolf();

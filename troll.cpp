@@ -7,7 +7,7 @@ Troll::Troll() {
 	moveable = true;
 }
 
-int Troll::dropGold() const {
+double Troll::dropGold() const {
 	return 1;
 }
 

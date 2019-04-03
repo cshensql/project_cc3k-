@@ -7,7 +7,7 @@ Phoenix::Phoenix() {
 	moveable = true;
 }
 
-int Phoenix::dropGold() const{
+double Phoenix::dropGold() const{
 	return 1;
 }
 

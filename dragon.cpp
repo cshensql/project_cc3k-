@@ -3,7 +3,7 @@ using namespace std;
 
 Dragon::Dragon() {}
 
-int Dragon::dropGold() const {
+double Dragon::dropGold() const {
 	return 6;
 }
 
