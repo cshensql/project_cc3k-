@@ -25,7 +25,7 @@ void ConcreteCell::SetCell(Cell *cell) {
     this->c = cell;
 }
 
-char ConcreteCell::GetType() {
+char ConcreteCell::GetType() const{
     return this->Type;
 }
 

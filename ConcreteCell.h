@@ -14,7 +14,7 @@ public:
     ~ConcreteCell();
     void SetCell(Cell* cell);
     Cell* GetCell();
-    virtual char GetType();
+    virtual char GetType() const;
 };
 
 #endif
