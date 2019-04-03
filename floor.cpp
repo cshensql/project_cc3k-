@@ -90,7 +90,7 @@ void Floor::init() {
     for(int i = 0; i < 25; i++) {
         vector<Cell> eachline;
         for (int j = 0; j < 79; j++) {
-            eachline.push_back(Cell(map[i][j], i, j));
+            eachline.emplace_back(Cell(map[i][j], i, j));
         }
         this->cells.push_back(eachline);
     }
@@ -100,7 +100,7 @@ void Floor::init() {
     initHero(n);
 
     //init stair
-    while(1) {
+    while(true) {
         int m = helper::random(5);
         if(m != n) {
             initStairs(m);
@@ -121,7 +121,7 @@ void Floor::init() {
 void Floor::initHero(int chamberIndex) {
     int index, x, y = 0;
     int chamberSize = this->chambers[chamberIndex]->getSize();
-    while(1) {
+    while(true) {
         index = helper::random(chamberSize);
         x = this->chambers[chamberIndex]->getCells()[index].getX();
         y = this->chambers[chamberIndex]->getCells()[index].getY();
@@ -136,9 +136,13 @@ void Floor::initHero(int chamberIndex) {
 }
 
 void Floor::initEnemies() {
-    int index, x, y, chamberIndex, chamberSize, enemyType, compass = 0;
-    char enemyName;
-    bool has_compass;
+    int index = 0;
+    int x = 0;
+    int y = 0;
+    int chamberIndex = 0;
+    int chamberSize = 0;
+    int enemyType = 0;
+    int compass = 0;
 
     for(int i = 0; i < 20; i++) {
         while(true) {
@@ -155,31 +159,25 @@ void Floor::initEnemies() {
                     case 1:
                     case 2:
                     case 3:
-                        enemyName = 'W';
                         e = new Werewolf();
                     case 4:
                     case 5:
                     case 6:
-                        enemyName = 'V';
                         e = new Vampire();
                     case 7:
                     case 8:
                     case 9:
                     case 10:
                     case 11:
-                        enemyName = 'N';
                         e = new Goblin();
                     case 12:
                     case 13:
-                        enemyName = 'T';
                         e = new Troll();
                     case 14:
                     case 15:
-                        enemyName = 'X';
                         e = new Phoenix();
                     case 16:
                     case 17:
-                        enemyName = 'M';
                         e = new Merchant();
                 }
                 e->setX(x);
@@ -199,7 +197,12 @@ void Floor::initEnemies() {
 
 
 void Floor::initPotions() {
-    int index, x, y, chamberIndex, chamberSize, potionType = 0;
+    int index = 0;
+    int x = 0;
+    int y = 0;
+    int chamberIndex = 0;
+    int chamberSize = 0;
+    int potionType = 0;
     string potionName;
 
     for(int i = 0; i < 10; i++) {
@@ -239,7 +242,12 @@ void Floor::initPotions() {
 
 
 void Floor::initTreasures() {
-    int index, x, y, chamberIndex, chamberSize, treasureType = 0;
+    int index = 0;
+    int x = 0;
+    int y = 0;
+    int chamberIndex = 0;
+    int chamberSize = 0;
+    int treasureType = 0;
     string treasureName;
 
     for(int i = 0; i < 10; i++) {
@@ -323,7 +331,7 @@ void Floor::initTreasures() {
 void Floor::initStairs(int chamberIndex) {
     int index, x, y = 0;
     int chamberSize = this->chambers[chamberIndex]->getSize();
-    while(1) {
+    while(true) {
         index = helper::random(chamberSize);
         x = this->chambers[chamberIndex]->getCells()[index].getX();
         y = this->chambers[chamberIndex]->getCells()[index].getY();
