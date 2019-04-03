@@ -18,6 +18,7 @@ class Hero: public Character {
         std::string getRace() const;
         int getGold() const;
         bool carryCompass() const;
+		bool carryBarrier() const;
         void setRace(std::string race_type);
         void setMaxHp(int max_hp);
         void setGoldNum(int gold_num);

@@ -24,6 +24,10 @@ bool Hero::carryCompass() const {
     return this->hasCompass;
 }
 
+bool Hero::carryBarrier() const {
+	return this->hasBarrier;
+}
+
 void Hero::setRace(string race_type) {
     this->race = race_type;
 }
