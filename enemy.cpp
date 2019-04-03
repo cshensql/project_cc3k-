@@ -5,26 +5,16 @@
 
 using namespace std;
 
-Enemy *Enemy::createEnemy(char enemy_type, bool bool_haspass) {
-    this->type = enemy_type;
-	this->hasCompass = bool_haspass;
-	switch (type) {
-	case 'V': moveable = true;
-	case 'W': moveable = true;
-	case 'N': moveable = true;
-	case 'M': moveable = true;
-	case 'X': moveable = true;
-	case 'T': moveable = true;
-	case 'D': moveable = false;
-	}
-}
-
 void Enemy::setHero(Hero *hero) {
     this->hero = hero; 
 }
 
 void Enemy::setFloor(Floor *floor) {
     this->floor = floor;
+}
+
+void Enemy::setCompass(bool has_compass) {
+	this->hasCompass = has_compass;
 }
 
 char Enemy::getType() const {
@@ -65,7 +55,7 @@ void Enemy::attack() {
 		return;
 	}
 	int damage = helper::ceiling((100 / (100 + hero->getDef())) * getAtk());
-	if (hero->hasBarrier) {
+	if (hero->carryBarrier()) {
 		damage = helper::ceiling(damage / 2);
 	}
 	if (hero->getHp() <= damage) {

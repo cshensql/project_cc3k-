@@ -7,9 +7,7 @@
 class Vampire final: public Enemy {
     public:
         Vampire();
-        void attack(Hero *hero) override;
-        void attackedByHero(Hero *hero) override;
-        const int dropGold() override;
+        int dropGold() const override;
         ~Vampire();
 };
 

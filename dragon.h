@@ -11,8 +11,6 @@ class Dragon final: public Enemy {
         BarrierSuit *barrierS = nullptr;
     public:
         Dragon();
-        void attack(Hero *hero) override;
-        void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Dragon();
 };

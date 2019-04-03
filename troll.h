@@ -7,8 +7,6 @@
 class Troll final: public Enemy {
     public:
         Troll();
-        void attack(Hero *hero) override;
-        void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Troll();
 };

@@ -16,9 +16,9 @@ class Enemy: public Character {
         bool moveable;
         Floor *floor = nullptr;
     public:
-        Enemy *createEnemy(char enemy_type, bool has_compass);
         void setHero(Hero *hero);
         void setFloor(Floor *floor);
+		void setCompass(bool has_compass);
         char getType() const;
         void moveNext();
         void attack();

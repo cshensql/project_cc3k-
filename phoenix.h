@@ -7,8 +7,6 @@
 class Phoenix final: public Enemy {
     public:
         Phoenix();
-        void attack(Hero *hero) override;
-        void attackedByHero(Hero *hero) override;
         const int dropGold() override;
         ~Phoenix();
 };
