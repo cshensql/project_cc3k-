@@ -11,7 +11,9 @@ class Dragon final: public Enemy {
         BarrierSuit *barrierS = nullptr;
     public:
         Dragon();
-        const int dropGold() override;
+        int dropGold() const override;
+        void setDragonHoard(DragonHoard *dragon_hoard);
+        void setBarrierSuit(BarrierSuit *barrier_suit);
         ~Dragon();
 };
 
