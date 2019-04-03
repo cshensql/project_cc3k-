@@ -29,7 +29,7 @@ class Hero: public Character {
         void pickGold(std::string direction);
         void pickCompass(std::string direction);
         Enemy *attackDir(std::string direction);
-        int attack(Enemy *enemy);
+        double attack(Enemy *enemy);
         virtual ~Hero() = 0;
 };
 

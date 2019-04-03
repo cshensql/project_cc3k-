@@ -88,21 +88,19 @@ Potion *Hero::pickPotion(string direction) {
         } else if (potion_type == "BD") {
             def += 5;
         } else if (potion_type == "PH") {
-			if (race == "Elves") {
-				if (hp + 10 < maxHp) {
-					hp += 10;
-				}
-				else {
-					hp = maxHp;
-				}
-			} else {
-				if (hp > 10) {
-					hp -= 10;
-				}
-				else {
-					hp = 0;
-				}
-			}
+            if (race == "Elves") {
+	        if (hp + 10 < maxHp) {
+		    hp += 10;
+	        } else {
+		hp = maxHp;
+	        }
+	    } else {
+		if (hp > 10) {
+		    hp -= 10;
+		} else {
+		    hp = 0;
+		}
+	    }
         } else if (potion_type == "WA") {
 			if (race == "Elves") {
 				atk += 5;
@@ -134,21 +132,25 @@ Potion *Hero::pickPotion(string direction) {
 void Hero::pickGold(string direction) {
     int X = getX();
     int Y = getY();
+    Cell origin_cell = floor->getCell(X, Y);
     X = helper::findX(X, direction);
     Y = helper::findY(Y, direction);
-    Cell c = floor->getCell(X, Y);
-    char cell_type = c.getCellType();
-    if (cell_type == 'G') {
-        ConcreteCell *conc = c.GetConcreteCell();
-        Treasure *gold = dynamic_cast<Treasure *>(conc);
-		if (race == "Dwarf") {
-			goldNum += 2 * gold->getValue();
-		} else if (race == "Elves") {
-			goldNum += gold->getValue() / 2;
-		} else {
-			goldNum += gold->getValue();
-		}
+    Cell gold_cell = floor->getCell(X, Y);
+    char cell_type = gold_cell.getCellType();
+    if (cell_type != 'G') { return; }
+    ConcreteCell *conc = gold_cell.GetConcreteCell();
+    Treasure *gold = dynamic_cast<Treasure *>(conc);
+    if (race == "Dwarf") {
+        goldNum += 2 * gold->getValue();
+    } else if (race == "Elves") {
+        goldNum += gold->getValue() / 2;
+    } else {
+        goldNum += gold->getValue();
     }
+    gold_cell.deleteConcrete();
+    ConcreteCell *ccell = origin_cell.GetConcreteCell();
+    gold_cell.SetConcreteCell(ccell);
+    origin_cell.deleteConcrete();
 }
         
 void Hero::pickCompass(string direction) {
@@ -178,9 +180,9 @@ Enemy *Hero::attackDir(string direction) {
     }
 }
 
-int Hero::attack(Enemy *enemy) {
+double Hero::attack(Enemy *enemy) {
     if (!enemy) { return 0; }
-    int damage = ceil((100 / (100 + enemy->getDef())) * atk);
+    double damage = ceil((100 / (100 + enemy->getDef())) * atk);
     //int damage = helper::ceiling((100 / (100 + enemy->getDef())) * atk);
     if (enemy->getHp() <= damage) {
         damage = getHp();
