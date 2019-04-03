@@ -96,10 +96,10 @@ void Floor::init() {
         }
     }
 
-    //init enemies
+    //init enemies except dragon
     initEnemies();
 
-    //init treasure
+    //init treasure and dragon
     initTreasures();
 
     //init potions
@@ -253,6 +253,42 @@ void Floor::initTreasures() {
                 this->treasures.push_back(t);
                 this->getCell(x,y).SetConcreteCell(t);
                 t->SetCell(&this->getCell(x, y));
+
+                //generate a dragon in the dragon hoard's neighbor
+                if(treasureName == "dragon hoard") {
+                    bool dragon_born = false;
+                    while(!dragon_born) {
+                        vector<string> directions;
+                        directions.emplace_back("no");
+                        directions.emplace_back("so");
+                        directions.emplace_back("ea");
+                        directions.emplace_back("we");
+                        directions.emplace_back("ne");
+                        directions.emplace_back("nw");
+                        directions.emplace_back("se");
+                        directions.emplace_back("sw");
+                        int dragon = helper::random(8); //0-7
+                        int count, newx, newy = 0;
+                        for (string s : directions) {
+                            newx = helper::findX(x, s);
+                            newy = helper::findY(y, s);
+                            if(count == dragon && !this->getCell(newx, newy).isOccupied()) {
+                                Enemy *e = Enemy::createEnemy('D');
+                                e->setX(newx);
+                                e->setY(newy);
+                                e->setHero(this->hero);
+                                e->setFloor(this);
+                                e->setDragonHoard(t);
+                                this->enemies.push_back(e);
+                                this->getCell(newx,newy).SetConcreteCell(e);
+                                e->SetCell(&this->getCell(newx, newy));
+                                dragon_born = true;
+                                break;
+                            }
+                            count++;
+                        }
+                    }
+                }
                 break;
             }
         }
