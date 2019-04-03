@@ -55,7 +55,7 @@ void Hero::move(string direction) {
     X = helper::findX(X, direction);
     Y = helper::findY(Y, direction);
     Cell new_cell = floor->getCell(X, Y);
-    if (!new_cell->canMove()) { return; }
+    if (!new_cell.canMove()) { return; }
     ConcreteCell *ccell = origin_cell.GetConcreteCell();
     new_cell.SetConcreteCell(ccell);
     origin_cell.deleteConcrete();
