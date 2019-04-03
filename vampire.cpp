@@ -7,8 +7,16 @@ Vampire::Vampire() {
 	moveable = true;
 }
 
-int Vampire::dropGold() {
+int Vampire::dropGold() const {
 	return 1;
+}
+
+void Vampire::setHostile(bool isHostile) {
+	this->isHostile = isHostile;
+}
+
+bool Vampire::getHostile() const{
+	return this->isHostile;
 }
 
 Vampire::~Vampire() {}

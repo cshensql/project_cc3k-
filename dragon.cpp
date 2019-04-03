@@ -3,7 +3,7 @@ using namespace std;
 
 Dragon::Dragon() {}
 
-int dropGold() const {
+int Dragon::dropGold() const {
 	return 6;
 }
 
@@ -13,6 +13,14 @@ void Dragon::setDragonHoard(DragonHoard *dragon_hoard) {
 
 void Dragon::setBarrierSuit(BarrierSuit *barrier_suit) {
 	barrierS = barrier_suit;
+}
+
+void Dragon::setHostile(bool isHostile) {
+	this->isHostile = isHostile;
+}
+
+bool Dragon::getHostile() const{
+	return this->isHostile;
 }
 
 Dragon::~Dragon() {

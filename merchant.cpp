@@ -9,12 +9,20 @@ Merchant::Merchant() {
 	isHostile = false;
 }
 
-int Merchant::dropGold() {
-	MerchantHoard merchant_hoard;
+int Merchant::dropGold() const {
+	MerchantHoard *merchant_hoard = new MerchantHoard();
 	Cell *current_cell = GetCell();
 	current_cell->deleteConcrete();
 	current_cell->SetConcreteCell(merchant_hoard);
 	return 4;
+}
+
+void Merchant::setHostile(bool isHostile) {
+	this->isHostile = isHostile;
+}
+
+bool Merchant::getHostile() const{
+	return this->isHostile;
 }
 
 Merchant::~Merchant() {}

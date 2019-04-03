@@ -5,9 +5,12 @@
 #include "hero.h"
 
 class Werewolf final: public Enemy {
+    static bool isHostile;
     public:
         Werewolf();
-        const int dropGold() override;
+        int dropGold() const override;
+        void setHostile(bool isHostile) override ;
+        bool getHostile() const override ;
         ~Werewolf();
 };
 

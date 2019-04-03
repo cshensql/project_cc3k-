@@ -5,9 +5,12 @@
 #include "hero.h"
 
 class Phoenix final: public Enemy {
+    static bool isHostile;
     public:
         Phoenix();
-        const int dropGold() override;
+        int dropGold() const override;
+        void setHostile(bool isHostile) override;
+        bool getHostile() const override;
         ~Phoenix();
 };
 

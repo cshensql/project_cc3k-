@@ -56,6 +56,7 @@ void Enemy::attack() {
 	}
 	double damage = ceil((100 / (100 + hero->getDef())) * getAtk());
 	//int damage = helper::ceiling((100 / (100 + hero->getDef())) * getAtk());
+
 	if (hero->carryBarrier()) {
 		damage = ceil(damage / 2);
 		//damage = helper::ceiling(damage / 2);

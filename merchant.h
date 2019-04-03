@@ -8,7 +8,9 @@ class Merchant final: public Enemy {
         static bool isHostile;
     public:
         Merchant();
-        const int dropGold() override;
+        int dropGold() const override;
+        void setHostile(bool isHostile) override ;
+        bool getHostile() const override ;
         ~Merchant();
 };
 

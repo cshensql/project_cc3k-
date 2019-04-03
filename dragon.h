@@ -9,11 +9,14 @@
 class Dragon final: public Enemy {
         DragonHoard *dragonH = nullptr;
         BarrierSuit *barrierS = nullptr;
+        static bool isHostile;
     public:
         Dragon();
         int dropGold() const override;
         void setDragonHoard(DragonHoard *dragon_hoard);
         void setBarrierSuit(BarrierSuit *barrier_suit);
+        void setHostile(bool isHostile) override;
+        bool getHostile() const override;
         ~Dragon();
 };
 

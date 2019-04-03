@@ -7,8 +7,16 @@ Phoenix::Phoenix() {
 	moveable = true;
 }
 
-int Phoenix::dropGold() {
+int Phoenix::dropGold() const{
 	return 1;
+}
+
+void Phoenix::setHostile(bool isHostile) {
+	this->isHostile = isHostile;
+}
+
+bool Phoenix::getHostile() const {
+	return this->isHostile;
 }
 
 Phoenix::~Phoenix() {}

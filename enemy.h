@@ -14,6 +14,7 @@ class Enemy: public Character {
         Hero *hero = nullptr;
         bool hasCompass = false;
         bool moveable;
+		static bool isHostile;
         Floor *floor = nullptr;
     public:
         void setHero(Hero *hero);
@@ -22,7 +23,9 @@ class Enemy: public Character {
         char getType() const;
         void moveNext();
         void attack();
-		virtual const int dropGold() = 0;
+		virtual void setHostile(bool isHostile) = 0;
+		virtual bool getHostile() const = 0;
+		virtual int dropGold() const = 0;
         virtual ~Enemy() = 0;
 };
 

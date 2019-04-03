@@ -5,9 +5,12 @@
 #include "hero.h"
 
 class Troll final: public Enemy {
+    static bool isHostile;
     public:
         Troll();
-        const int dropGold() override;
+        int dropGold() const override;
+        void setHostile(bool isHostile) override ;
+        bool getHostile() const override ;
         ~Troll();
 };
 
