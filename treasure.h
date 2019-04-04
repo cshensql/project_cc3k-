@@ -5,6 +5,7 @@
 #include "item.h"
 
 class Treasure: public Item {
+protected:
         double value;
         std::string type;
         bool picked;

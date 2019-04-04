@@ -3,7 +3,8 @@
 
 #include <string>
 #include "character.h"
-#include "enemy.h"
+class Floor;
+class Enemy;
 
 class Potion;
 

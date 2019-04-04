@@ -1,12 +1,13 @@
 #include "hero.h"
 #include "cell.h"
 #include "floor.h"
-#include "ConcreteCell.h"
+#include "dragon.h"
 #include "potion.h"
 #include "treasure.h"
 #include "compass.h"
 #include "helper.h"
-#include "merchant.h"
+#include "barriersuit.h"
+#include "dragonhoard.h"
 
 using namespace std;
 
@@ -210,9 +211,9 @@ double Hero::attack(Enemy *enemy) {
     }
     if (!enemy->isAlive()) {
         if (enemy->getType() == 'D') {
-            Dragon *dragon = dynamic_cast<Enemy *>(enemy);
+            Dragon *dragon = dynamic_cast<Dragon *>(enemy);
             if (dragon->getDragonHoard()) { dragon->getDragonHoard()->setPickable(true); }
-            if (dragon->getBarrierHoard()) { dragon->getBarrierSuit()->setPickable(true); }
+            if (dragon->getBarrierSuit()) { dragon->getBarrierSuit()->setPickable(true); }
         }
         double drop_gold = enemy->dropGold();
         if (race == "Dwarf") {
