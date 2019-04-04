@@ -103,7 +103,7 @@ void Floor::init() {
     }
 
     //init hero
-    int n = helper::random(5);
+    int n = helper::random(5); //0-4
     initHero(n);
 
     //init stair
@@ -129,7 +129,9 @@ void Floor::init() {
 }
 
 void Floor::initHero(int chamberIndex) {
-    int index, x, y = 0;
+    int index = 0;
+    int x =0;
+    int y = 0;
     int chamberSize = this->chambers[chamberIndex]->getSize();
     while(true) {
         index = helper::random(chamberSize);
@@ -414,7 +416,9 @@ void Floor::initBarrierSuit() {
 
 
 void Floor::initStairs(int chamberIndex) {
-    int index, x, y = 0;
+    int index = 0;
+    int x = 0;
+    int y = 0;
     int chamberSize = this->chambers[chamberIndex]->getSize();
     while(true) {
         index = helper::random(chamberSize);
