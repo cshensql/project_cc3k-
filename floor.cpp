@@ -7,6 +7,7 @@
 #include "small.h"
 #include "merchanthoard.h"
 #include "dragonhoard.h"
+#include "barriersuit.h"
 #include "goblin.h"
 #include "vampire.h"
 #include "werewolf.h"
@@ -20,6 +21,7 @@ Floor::Floor(Hero *hero): hero{hero} {}
 
 Floor::~Floor() {
     delete hero;
+    delete barrierSuit;
     for(Enemy *e : enemies) {
         if(e) delete e;
     }
@@ -41,6 +43,7 @@ Floor::~Floor() {
 
 void Floor::clear() {
     delete hero;
+    delete barrierSuit;
     for(Enemy *e : enemies) {
         if(e) delete e;
     }
@@ -62,6 +65,7 @@ void Floor::clear() {
 
 // generate random chamber for hero, stairs
 void Floor::init() {
+    clear();
     vector<vector<char>> map;
     vector<vector<char>> chamberMap;
     map = helper::readMap("map.txt");
@@ -113,6 +117,9 @@ void Floor::init() {
 
     //init treasure and dragon
     initTreasures();
+
+    //init barrier suit
+    initBarrierSuit();
 
     //init potions
     initPotions();
@@ -253,8 +260,8 @@ void Floor::initTreasures() {
     for(int i = 0; i < 10; i++) {
         while(true) {
             chamberIndex = helper::random(5);
-            index = helper::random(chamberSize);
             chamberSize = this->chambers[chamberIndex]->getSize();
+            index = helper::random(chamberSize);
             x = this->chambers[chamberIndex]->getCells()[index].getX();
             y = this->chambers[chamberIndex]->getCells()[index].getY();
             Treasure *t;
@@ -278,11 +285,11 @@ void Floor::initTreasures() {
                 }
                 t->setX(x);
                 t->setY(y);
+                t->SetCell(&this->getCell(x, y));
                 this->treasures.push_back(t);
                 this->getCell(x,y).SetConcreteCell(t);
-                t->SetCell(&this->getCell(x, y));
 
-                //generate a dragon in the dragon hoard's neighbor
+                //generate a dragon next to the dragon hoard
                 if(treasureName == "dragon hoard") {
                     DragonHoard *dh = dynamic_cast<DragonHoard *> (t);
                     bool dragon_born = false;
@@ -322,7 +329,80 @@ void Floor::initTreasures() {
                     }
                 }
                 break;
+            } else {
+                continue;
             }
+        }
+    }
+}
+
+
+void Floor::initBarrierSuit() {
+    int floorNum = 0;
+    int chamberIndex = 0;
+    int chamberSize = 0;
+    int index = 0;
+    int x = 0;
+    int y = 0;
+    floorNum = helper::random(5);
+    while(true) {
+        if(this->currentFloor == (floorNum + 1)) {
+            chamberIndex = helper::random(5);
+            chamberSize = this->chambers[chamberIndex]->getSize();
+            index = helper::random(chamberSize);
+            x = this->chambers[chamberIndex]->getCells()[index].getX();
+            y = this->chambers[chamberIndex]->getCells()[index].getY();
+            if(!this->getCell(x, y).isOccupied()) {
+                Item *i = new BarrierSuit();
+                BarrierSuit *bs = dynamic_cast<BarrierSuit *> (i);
+                bs->setX(x);
+                bs->setY(y);
+                bs->SetCell(&this->getCell(x, y));
+                this->barrierSuit = bs;
+                this->getCell(x,y).SetConcreteCell(bs);
+
+                //generate a dragon next to the barriersuit
+                bool dragon_born = false;
+                while(!dragon_born) {
+                    vector<string> directions;
+                    directions.emplace_back("no");
+                    directions.emplace_back("so");
+                    directions.emplace_back("ea");
+                    directions.emplace_back("we");
+                    directions.emplace_back("ne");
+                    directions.emplace_back("nw");
+                    directions.emplace_back("se");
+                    directions.emplace_back("sw");
+                    int dragon = helper::random(8); //0-7
+                    int count = 0;
+                    int newx = 0;
+                    int newy = 0;
+                    for (string s : directions) {
+                        newx = helper::findX(x, s);
+                        newy = helper::findY(y, s);
+                        if(count == dragon && !this->getCell(newx, newy).isOccupied()) {
+                            Enemy *e = new Dragon();
+                            Dragon *d = dynamic_cast<Dragon *> (e);
+                            d->setX(newx);
+                            d->setY(newy);
+                            d->setHero(this->hero);
+                            d->setFloor(this);
+                            d->setBarrierSuit(bs);
+                            this->enemies.push_back(e);
+                            this->getCell(newx,newy).SetConcreteCell(e);
+                            e->SetCell(&this->getCell(newx, newy));
+                            dragon_born = true;
+                            break;
+                        }
+                        count++;
+                    }
+                }
+                break;
+            } else {
+                continue;
+            }
+        } else {
+            return;
         }
     }
 }
@@ -359,7 +439,7 @@ void Floor::nextTurn() {
     for(int i = 0; i < this->enemies.size(); i++) {
         if(enemies[i] && !enemies[i]->isAlive()) {
             enemies[i]->GetCell()->deleteConcrete();
-            int goldNum = enemies[i]->dropGold();
+            double goldNum = enemies[i]->dropGold();
             Treasure *t;
             if(goldNum == 1) {
                 t = new Normal();

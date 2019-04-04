@@ -6,17 +6,18 @@
 #include "cell.h"
 #include "chamber.h"
 #include "hero.h"
+#include "barriersuit.h"
 
 class Enemy;
 class Potion;
 class Treasure;
-
 
 class Floor {
     Hero *hero;
     int currentFloor = 1;
     static const int col = 79;
     static const int row = 30;
+    BarrierSuit *barrierSuit;
     std::vector<std::vector<Cell>> cells;
     std::vector<Enemy *> enemies;
     std::vector<Potion *> potions;
@@ -31,6 +32,7 @@ public:
     void initEnemies();
     void initPotions();
     void initTreasures();
+    void initBarrierSuit();
     void initStairs(int chamberIndex);
     void updateCurFloor();
     int getCurrentFloor();
