@@ -157,8 +157,8 @@ void Floor::initEnemies() {
     for(int i = 0; i < 20; i++) {
         while(true) {
             chamberIndex = helper::random(5);
-            index = helper::random(chamberSize);
             chamberSize = this->chambers[chamberIndex]->getSize();
+            index = helper::random(chamberSize);
             x = this->chambers[chamberIndex]->getCells()[index].getX();
             y = this->chambers[chamberIndex]->getCells()[index].getY();
             Enemy *e;
@@ -203,7 +203,7 @@ void Floor::initEnemies() {
     }
     compass = helper::random(20);
     this->enemies[compass]->setCompass(true);
-    Compass *c {};
+    Compass *c = new Compass();
     c->setHolder(this->enemies[compass]);
 }
 
@@ -220,8 +220,8 @@ void Floor::initPotions() {
     for(int i = 0; i < 10; i++) {
         while(true) {
             chamberIndex = helper::random(5);
-            index = helper::random(chamberSize);
             chamberSize = this->chambers[chamberIndex]->getSize();
+            index = helper::random(chamberSize);
             x = this->chambers[chamberIndex]->getCells()[index].getX();
             y = this->chambers[chamberIndex]->getCells()[index].getY();
             if(!this->getCell(x, y).isOccupied()) {

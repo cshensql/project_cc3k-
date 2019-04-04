@@ -32,17 +32,17 @@ void TextDisplay::render() {
     for(int i = 0; i < 25; i++) {
         for(int j = 0; j < 79; j++) {
             if(this->floor->getCell(i, j).GetConcreteCell() == nullptr) {
-                if(this->floor->getCell(j,i).getCellType() == '\\') {
+                if(this->floor->getCell(i,j).getCellType() == '\\') {
                     if(this->floor->getHero()->carryCompass()) {
-                        cout << this->floor->getCell(j,i).getCellType();
+                        cout << this->floor->getCell(i,j).getCellType();
                     } else {
                         cout << '.';
                     }
                 } else {
-                    cout << this->floor->getCell(j,i).getCellType();
+                    cout << this->floor->getCell(i,j).getCellType();
                 }
             } else {
-                cout << this->floor->getCell(j,i).GetConcreteCell()->GetType();
+                cout << this->floor->getCell(i,j).GetConcreteCell()->GetType();
             }
         }
         cout << endl;
