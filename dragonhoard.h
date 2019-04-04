@@ -4,7 +4,6 @@
 #include "treasure.h"
 
 class DragonHoard: public Treasure {
-        bool pickable;
     public:
         DragonHoard();
         ~DragonHoard();

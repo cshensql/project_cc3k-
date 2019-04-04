@@ -5,18 +5,21 @@
 #include "item.h"
 
 class Treasure: public Item {
-        int value;
+        double value;
         std::string type;
         bool picked;
+        bool pickable;
     public:
-		Treasure(std::string type);
+        Treasure(std::string type);
         std::string getType () const;
-        char GetType() const override ;
-	    void setType(std::string type);
-        int getValue() const;
-	    void setValue(int amount);
-	    bool getState() const;
-	    void setState(bool picked);
+        char GetType() const override;
+        void setType(std::string type);
+        double getValue() const;
+        void setValue(double amount);
+        bool getState() const;
+        void setState(bool picked);
+        bool isPickable() const;
+        void setPickable(bool pickable);
         virtual ~Treasure() = 0;
 };
 

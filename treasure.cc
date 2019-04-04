@@ -5,11 +5,11 @@ using namespace std;
 
 Treasure::Treasure(string type): type{type}, picked{false} {}
 
-string Treasure::getType() const{
+string Treasure::getType() const {
     return type;
 }
 
-char Treasure::GetType() const {
+char Treasure::GetType() const override {
     return 'G';
 }
 
@@ -17,12 +17,12 @@ void Treasure::setType (std::string type) {
     this->type = type;
 }
 
-int Treasure::getValue() const{
+double Treasure::getValue() const{
     return value;
 }
 
-void Treasure::setValue (int amount) {
-    value = amount;
+void Treasure::setValue (double amount) {
+    this->value = amount;
 }
 
 bool Treasure::getState() const {
@@ -33,4 +33,12 @@ void Treasure::setState (bool picked) {
     this->picked = picked;
 }
 
-Treasure::~Treasure() {}
+bool Treasure::isPickable() const {
+    return pickable;
+}
+
+void Treasure::setPickable(bool pickable) {
+    this->pickable = pickable;
+}
+
+virtual Treasure::~Treasure() {}
