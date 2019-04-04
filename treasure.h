@@ -12,7 +12,7 @@ class Treasure: public Item {
 		Treasure(std::string type);
         std::string getType () const;
         char GetType() const override ;
-	    void setType(std::string typename);
+	    void setType(std::string type);
         int getValue() const;
 	    void setValue(int amount);
 	    bool getState() const;

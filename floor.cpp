@@ -17,6 +17,7 @@
 #include "dragon.h"
 #include "phoenix.h"
 #include "chamber.h"
+#include "hero.h"
 using namespace std;
 
 Floor::Floor(Hero *hero): hero{hero} {}

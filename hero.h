@@ -5,6 +5,8 @@
 #include "character.h"
 #include "enemy.h"
 
+class Potion;
+
 class Hero: public Character {
     protected:
         std::string race; //first letter is uppercase
@@ -28,7 +30,7 @@ class Hero: public Character {
         Potion *pickPotion(std::string direction);
         void pickGold(std::string direction);
         void pickCompass(std::string direction);
-        void pickBarrierSuit(string direction);
+        void pickBarrierSuit(std::string direction);
         Enemy *attackDir(std::string direction);
         double attack(Enemy *enemy);
         virtual void setDefaultAtkDef() = 0;

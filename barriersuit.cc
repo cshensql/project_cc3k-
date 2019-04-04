@@ -1,6 +1,6 @@
 #include "barriersuit.h"
 
-char BarrierSuit::GetType() const override {
+char BarrierSuit::GetType() const {
     return 'B';
 }
 

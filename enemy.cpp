@@ -2,6 +2,7 @@
 #include "helper.h"
 #include "floor.h"
 #include "hero.h"
+#include "cell.h"
 #include <cstdlib>
 #include <vector>
 

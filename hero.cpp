@@ -1,5 +1,6 @@
 #include "hero.h"
 #include "cell.h"
+#include "floor.h"
 #include "ConcreteCell.h"
 #include "potion.h"
 #include "treasure.h"
@@ -16,7 +17,7 @@ char Hero::GetType() const {
 string Hero::getRace() const {
     return this->race;
 }
-        
+
 double Hero::getGold() const {
     return this->goldNum;
 }

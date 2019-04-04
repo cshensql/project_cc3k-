@@ -9,12 +9,12 @@ string Treasure::getType() const{
     return type;
 }
 
-char Treasure::GetType() const override{
+char Treasure::GetType() const {
     return 'G';
 }
 
-void Treasure::setType (std::string typename) {
-    type = typename;
+void Treasure::setType (std::string type) {
+    this->type = type;
 }
 
 int Treasure::getValue() const{
@@ -33,4 +33,4 @@ void Treasure::setState (bool picked) {
     this->picked = picked;
 }
 
-virtual Treasure::~Treasure() {}
+Treasure::~Treasure() {}
