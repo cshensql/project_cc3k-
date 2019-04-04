@@ -10,3 +10,7 @@ bool Item::isPickable() const {
 void Item::setPickable(bool pickable) {
     this->pickable = pickable;
 }
+
+Item::Item() {}
+
+Item::~Item() {}

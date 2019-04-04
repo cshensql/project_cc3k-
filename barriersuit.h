@@ -6,7 +6,7 @@
 class BarrierSuit: public Item {
         bool pickable;
     public:
-	char GetType() const override;
+		char GetType() const override;
         BarrierSuit();
         ~BarrierSuit();
 };

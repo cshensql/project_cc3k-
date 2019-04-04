@@ -2,11 +2,11 @@
 #include "cell.h"
 using namespace std;
 
-Cell::Cell() {}
+Cell::Cell() = default;
 
 Cell::Cell(char type, int x, int y): type{type}, BasicCell(x, y) {}
 
-Cell::~Cell() {}
+Cell::~Cell() = default;
 
 bool Cell::isOccupied() {
     return this->type != '.';

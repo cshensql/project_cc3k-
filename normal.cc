@@ -5,4 +5,4 @@ Normal::Normal(): Treasure("normal"){
     setPickable(true);
 }
 
-Normal::~Normal () {}
+Normal::~Normal() {}

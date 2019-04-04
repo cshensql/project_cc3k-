@@ -9,7 +9,7 @@ class BarrierSuit;
 class Dragon final: public Enemy {
         DragonHoard *dragonH = nullptr;
         BarrierSuit *barrierS = nullptr;
-        static bool isHostile;
+        bool isHostile;
     public:
         Dragon();
         double dropGold() const override;
