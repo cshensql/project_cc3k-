@@ -20,4 +20,8 @@ bool Troll::getHostile() const {
 	return this->isHostile;
 }
 
+char Troll::GetType() const {
+	return 'T';
+}
+
 Troll::~Troll() {}

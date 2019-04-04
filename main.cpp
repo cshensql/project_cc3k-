@@ -38,9 +38,11 @@ int main() {
         cout << "Elves: 140 HP, 30 Atk, 10 Def, negative potions have positive effect   enter 'e' to be an elf" << endl;
         cout << "Orc:   180 HP, 30 Atk, 25 Def, gold is worth half value                enter 'o' to be an orc" << endl;
 
+        //string h;
         char race;
         Hero *hero;
         cin >> race;
+
         switch (race) {
             case 'h' : hero = new Human();
             case 'd' : hero = new Dwarf();
@@ -50,6 +52,7 @@ int main() {
         }
 
         Floor *f = new Floor(hero);
+        hero->setFloor(f);
         f->init();
         TextDisplay *display = new TextDisplay();
         display->setFloor(f);
@@ -157,49 +160,45 @@ int main() {
                 for (string s : directions) {
                     Cell c = f->getCell(helper::findX(hero->getX(), s), helper::findY(hero->getY(), s));
                     ConcreteCell *ccell = c.GetConcreteCell();
-                    if (ccell->GetType() == 'P') {
-                        Potion *p = dynamic_cast<Potion *>(ccell);
-                        if (p->getType() == "RH") {
-                            if (RH_found) {
-                                neighbours.emplace_back(p->getType());
-                            }
-                            else {
-                                unknown_potion = true;
-                            }
-                        } else if (p->getType() == "BA") {
-                            if (BA_found) {
-                                neighbours.emplace_back(p->getType());
-                            }
-                            else {
-                                unknown_potion = true;
-                            }
-                        } else if (p->getType() == "BD") {
-                            if (BD_found) {
-                                neighbours.emplace_back(p->getType());
-                            }
-                            else {
-                                unknown_potion = true;
-                            }
-                        } else if (p->getType() == "PH") {
-                            if (PH_found) {
-                                neighbours.emplace_back(p->getType());
-                            }
-                            else {
-                                unknown_potion = true;
-                            }
-                        } else if (p->getType() == "WA") {
-                            if (WA_found) {
-                                neighbours.emplace_back(p->getType());
-                            }
-                            else {
-                                unknown_potion = true;
-                            }
-                        } else if (p->getType() == "WD") {
-                            if (WD_found) {
-                                neighbours.emplace_back(p->getType());
-                            }
-                            else {
-                                unknown_potion = true;
+                    if(ccell) {
+                        if (ccell->GetType() == 'P') {
+                            Potion *p = dynamic_cast<Potion *>(ccell);
+                            if (p->getType() == "RH") {
+                                if (RH_found) {
+                                    neighbours.emplace_back(p->getType());
+                                } else {
+                                    unknown_potion = true;
+                                }
+                            } else if (p->getType() == "BA") {
+                                if (BA_found) {
+                                    neighbours.emplace_back(p->getType());
+                                } else {
+                                    unknown_potion = true;
+                                }
+                            } else if (p->getType() == "BD") {
+                                if (BD_found) {
+                                    neighbours.emplace_back(p->getType());
+                                } else {
+                                    unknown_potion = true;
+                                }
+                            } else if (p->getType() == "PH") {
+                                if (PH_found) {
+                                    neighbours.emplace_back(p->getType());
+                                } else {
+                                    unknown_potion = true;
+                                }
+                            } else if (p->getType() == "WA") {
+                                if (WA_found) {
+                                    neighbours.emplace_back(p->getType());
+                                } else {
+                                    unknown_potion = true;
+                                }
+                            } else if (p->getType() == "WD") {
+                                if (WD_found) {
+                                    neighbours.emplace_back(p->getType());
+                                } else {
+                                    unknown_potion = true;
+                                }
                             }
                         }
                     }

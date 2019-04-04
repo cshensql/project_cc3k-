@@ -4,12 +4,13 @@
 #include "enemy.h"
 
 class Merchant final: public Enemy {
-        static bool isHostile;
+        bool isHostile;
     public:
         Merchant();
         double dropGold() const override;
         void setHostile(bool isHostile) override ;
         bool getHostile() const override ;
+    char GetType() const override;
         ~Merchant();
 };
 

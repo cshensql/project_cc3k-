@@ -10,6 +10,7 @@ class Potion;
 
 class Hero: public Character {
     protected:
+        char Type = '@';
         std::string race; //first letter is uppercase
         int maxHp;
         double goldNum = 0;
@@ -17,6 +18,7 @@ class Hero: public Character {
         bool hasCompass = false;
         Floor *floor = nullptr;
     public:
+        void SetType();
         char GetType() const override;
         std::string getRace() const;
         double getGold() const;

@@ -20,4 +20,8 @@ bool Phoenix::getHostile() const {
 	return this->isHostile;
 }
 
+char Phoenix::GetType() const {
+	return 'X';
+}
+
 Phoenix::~Phoenix() {}

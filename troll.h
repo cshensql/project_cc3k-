@@ -4,12 +4,13 @@
 #include "enemy.h"
 
 class Troll final: public Enemy {
-    static bool isHostile;
+    bool isHostile;
     public:
         Troll();
         double dropGold() const override;
         void setHostile(bool isHostile) override ;
         bool getHostile() const override ;
+    char GetType() const override;
         ~Troll();
 };
 

@@ -23,8 +23,6 @@ using namespace std;
 Floor::Floor(Hero *hero): hero{hero} {}
 
 Floor::~Floor() {
-    delete hero;
-    delete barrierSuit;
     for(Enemy *e : enemies) {
         if(e) delete e;
     }
@@ -45,8 +43,8 @@ Floor::~Floor() {
 }
 
 void Floor::clear() {
-    delete hero;
-    delete barrierSuit;
+    //delete hero;
+    //delete barrierSuit;
     for(Enemy *e : enemies) {
         if(e) delete e;
     }
@@ -140,8 +138,9 @@ void Floor::initHero(int chamberIndex) {
         if(!this->getCell(x, y).isOccupied()) {
             this->hero->setX(x);
             this->hero->setY(y);
-            this->getCell(x, y).SetConcreteCell(this->hero);
             this->hero->SetCell(&this->getCell(x, y));
+            this->hero->SetType();
+            this->getCell(x, y).SetConcreteCell(this->hero);
             break;
         }
     }
@@ -426,6 +425,7 @@ void Floor::initStairs(int chamberIndex) {
         y = this->chambers[chamberIndex]->getCells()[index].getY();
         if(!this->getCell(x, y).isOccupied()) {
             this->getCell(x, y).setCell('\\');
+            this->getCell(x, y).SetConcreteCell(nullptr);
             break;
         }
     }

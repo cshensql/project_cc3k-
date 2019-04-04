@@ -32,6 +32,10 @@ bool Dragon::getHostile() const{
 	return this->isHostile;
 }
 
+char Dragon::GetType() const {
+	return 'D';
+}
+
 Dragon::~Dragon() {
 	delete dragonH;
 	delete barrierS;

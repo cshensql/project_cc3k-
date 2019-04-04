@@ -4,12 +4,13 @@
 #include "enemy.h"
 
 class Goblin final: public Enemy {
-    static bool isHostile;
+    bool isHostile;
     public:
         Goblin();
         double dropGold() const override;
         void setHostile(bool isHostile) override ;
         bool getHostile() const override ;
+    char GetType() const override;
         ~Goblin();
 };
 

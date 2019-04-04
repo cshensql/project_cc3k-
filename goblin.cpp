@@ -20,4 +20,8 @@ bool Goblin::getHostile() const {
 	return this->isHostile;
 }
 
+char Goblin::GetType() const {
+	return 'N';
+}
+
 Goblin::~Goblin() {}
