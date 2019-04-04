@@ -10,4 +10,9 @@ Human::Human() {
     setMaxHp(140);
 }
 
+void Human::setDefaultAtkDef() {
+    setAtk(20);
+    setDef(20);
+}
+
 Human::~Human() {}

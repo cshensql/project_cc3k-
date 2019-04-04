@@ -10,4 +10,9 @@ Orc::Orc() {
     setMaxHp(180);
 }
 
-Orc::Orc() {}
+void Orc::setDefaultAtkDef() {
+    setAtk(30);
+    setDef(25);
+}
+
+Orc::~Orc() {}

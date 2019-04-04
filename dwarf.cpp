@@ -10,4 +10,9 @@ Dwarf::Dwarf() {
     setMaxHp(100);
 }
 
+void Dwarf::setDefaultAtkDef() {
+    setAtk(20);
+    setDef(30);
+}
+
 Dwarf::~Dwarf() {}

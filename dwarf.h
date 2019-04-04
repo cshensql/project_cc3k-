@@ -7,6 +7,7 @@
 class Dwarf final: public Hero {
     public:
         Dwarf();
+        void setDefaultAtkDef() override;
         ~Dwarf();
 };
 

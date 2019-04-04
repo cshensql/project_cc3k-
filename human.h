@@ -7,6 +7,7 @@
 class Human final: public Hero {
     public:
         Human();
+        void setDefaultAtkDef() override;
         ~Human();
 };
 

@@ -31,6 +31,7 @@ class Hero: public Character {
         void pickBarrierSuit(string direction);
         Enemy *attackDir(std::string direction);
         double attack(Enemy *enemy);
+        virtual void setDefaultAtkDef() = 0;
         virtual ~Hero() = 0;
 };
 

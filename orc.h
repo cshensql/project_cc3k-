@@ -7,6 +7,7 @@
 class Orc final: public Hero {
     public:
         Orc();
+        void setDefaultAtkDef() override;
         ~Orc();
 };
 

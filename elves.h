@@ -7,6 +7,7 @@
 class Elves final: public Hero {
     public:
         Elves();
+        void setDefaultAtkDef() override;
         ~Elves();
 };
 
