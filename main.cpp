@@ -65,7 +65,7 @@ int main() {
         while(true) {
             if (hero->getHp() <= 0) {
                 cout << "You die!" << endl;
-                int score;
+                double score;
                 if (hero->getRace() == "Human") {
                     score = hero->getGold() * 1.5;
                 }
@@ -115,7 +115,7 @@ int main() {
                     f->updateCurFloor();
                     if (f->getCurrentFloor() == 6) {
                         cout << "Congradulations, you win the game!" << endl;
-                        int score;
+                        double score;
                         if (hero->getRace() == "Human") {
                             score = hero->getGold() * 1.5;
                         }
@@ -135,10 +135,10 @@ int main() {
                             playing = false;
                             break;
                         }
-                    }
-                    else {
+                    } else {
                         display->updateAction("Player moves to the next floor.");
-                        f->nextTurn();
+                        f->init();
+                        hero->setDefaultAtkDef();
                         display->updateHeroInfo(hero);
                         display->render();
                         continue;
@@ -230,7 +230,7 @@ int main() {
                     Potion *p = hero->pickPotion(dir);
                     if (!hero->isAlive()) {
                         cout << "You die!" << endl;
-                        int score;
+                        double score;
                         if (hero->getRace() == "Human") {
                             score = hero->getGold() * 1.5;
                         }
@@ -280,7 +280,7 @@ int main() {
                    dir == "ne" || dir == "nw" || dir == "se" || dir == "sw") {
                     Enemy *enemy = hero->attackDir(dir);
                     int heroHp = hero->getHp();
-                    int damage = hero->attack(enemy);
+                    double damage = hero->attack(enemy);
                     int enemyHp = enemy->getHp();
                     f->nextTurn();
                     int damageTaken = heroHp - hero->getHp();
