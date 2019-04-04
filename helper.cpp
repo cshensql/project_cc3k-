@@ -11,7 +11,7 @@ vector<vector<char>> helper::readMap(string filename) {
         for(int i = 0; i < 79; i++) {
             eachline.push_back(aline[i]);
         }
-        result.emplace_back(aline);
+        result.emplace_back(eachline);
     }
     return result;
 }
