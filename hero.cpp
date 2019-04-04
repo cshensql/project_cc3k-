@@ -141,6 +141,7 @@ void Hero::pickGold(string direction) {
     if (cell_type != 'G') { return; }
     ConcreteCell *conc = gold_cell.GetConcreteCell();
     Treasure *gold = dynamic_cast<Treasure *>(conc);
+    if (!gold->isPickable()) { return; }
     if (race == "Dwarf") {
         goldNum += 2 * gold->getValue();
     } else if (race == "Elves") {
@@ -174,6 +175,9 @@ void Hero::pickBarrierSuit(string direction) {
     Cell c = floor->getCell(X, Y);
     char cell_type = c.getCellType();
     if (cell_type == 'B') {
+        ConcreteCell *conc = c.GetConcreteCell();
+        BarrierSuit *bs = dynamic_cast<BarrierSuit *>(conc);
+        if (!bs->isPickable()) { return; }
         this->hasBarrier = true;
     }
 }
@@ -201,8 +205,27 @@ double Hero::attack(Enemy *enemy) {
         damage = getHp();
     }
     enemy->setHp(enemy->getHp() - damage);
-    if(enemy->getType() == 'M') {
+    if (enemy->getType() == 'M') {
         enemy->setHostile(true);
+    }
+    if (!enemy->isAlive()) {
+        if (enemy->getType() == 'D') {
+            Dragon *dragon = dynamic_cast<Enemy *>(enemy);
+            if (dragon->getDragonHoard()) { dragon->getDragonHoard()->setPickable(true); }
+            if (dragon->getBarrierHoard()) { dragon->getBarrierSuit()->setPickable(true); }
+        }
+        double drop_gold = enemy->dropGold();
+        if (race == "Dwarf") {
+            goldNum += 2 * drop_gold;
+        } else if (race == "Elves") {
+            goldNum += drop_gold / 2;
+        } else {
+            goldNum += drop_gold;
+        }
+
+        // TO-DO: drop compass ???
+
+
     }
     return damage;
 }

@@ -16,6 +16,14 @@ void Dragon::setBarrierSuit(BarrierSuit *barrier_suit) {
 	barrierS = barrier_suit;
 }
 
+DragonHoard *Dragon::getDragonHoard() const {
+    return this->dragonH;   
+}
+
+BarrierSuit *Dragon::getBarrierSuit() const {
+    return this->barrierS;
+}
+
 void Dragon::setHostile(bool isHostile) {
 	this->isHostile = isHostile;
 }

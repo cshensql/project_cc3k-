@@ -8,7 +8,6 @@ class Treasure: public Item {
         double value;
         std::string type;
         bool picked;
-        bool pickable;
     public:
         Treasure(std::string type);
         std::string getType () const;
@@ -18,8 +17,6 @@ class Treasure: public Item {
         void setValue(double amount);
         bool getState() const;
         void setState(bool picked);
-        bool isPickable() const;
-        void setPickable(bool pickable);
         virtual ~Treasure() = 0;
 };
 

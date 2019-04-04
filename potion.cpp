@@ -3,9 +3,9 @@
 
 using namespace std;
 
-Potion::Potion() {}
+Potion::Potion(): pickable{true} {}
 
-Potion::Potion(string potion_type): type{potion_type} {}
+Potion::Potion(string potion_type): type{potion_type}, pickable{true} {}
 
 char Potion::GetType() const {
     return 'P';

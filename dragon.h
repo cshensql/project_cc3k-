@@ -15,6 +15,8 @@ class Dragon final: public Enemy {
         double dropGold() const override;
         void setDragonHoard(DragonHoard *dragon_hoard);
         void setBarrierSuit(BarrierSuit *barrier_suit);
+        DragonHoard *getDragonHoard() const;
+        BarrierSuit *getBarrierSuit() const;
         void setHostile(bool isHostile) override;
         bool getHostile() const override;
         ~Dragon();

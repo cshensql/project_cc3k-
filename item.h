@@ -3,8 +3,11 @@
 
 #include "ConcreteCell.h"
 
-class Item: public ConcreteCell {    
+class Item: public ConcreteCell {
+        bool pickable;
     public:
+        bool isPickable() const;
+        void setPickable(bool pickable);
         virtual ~Item() = 0;
 };
 

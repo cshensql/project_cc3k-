@@ -33,12 +33,4 @@ void Treasure::setState (bool picked) {
     this->picked = picked;
 }
 
-bool Treasure::isPickable() const {
-    return pickable;
-}
-
-void Treasure::setPickable(bool pickable) {
-    this->pickable = pickable;
-}
-
 virtual Treasure::~Treasure() {}
