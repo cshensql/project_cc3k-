@@ -2,8 +2,6 @@
 #define _ENEMY_H
 
 #include "character.h"
-#include "floor.h"
-#include "hero.h"
 
 class Hero;
 class Floor;

@@ -1,7 +1,6 @@
 #ifndef _CHARACTER_H
 #define _CHARACTER_H
 
-#include "character.h"
 #include "ConcreteCell.h"
 
 class Character: public ConcreteCell {

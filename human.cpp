@@ -1,5 +1,5 @@
 #include "human.h"
-
+#include <iostream>
 using namespace std;
 
 Human::Human() {

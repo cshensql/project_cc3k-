@@ -2,7 +2,6 @@
 #define _TROLL_H
 
 #include "enemy.h"
-#include "hero.h"
 
 class Troll final: public Enemy {
     static bool isHostile;

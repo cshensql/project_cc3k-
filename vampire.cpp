@@ -1,3 +1,4 @@
+#include <iostream>
 #include "vampire.h"
 using namespace std;
 

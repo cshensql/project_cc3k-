@@ -1,3 +1,4 @@
+#include <iostream>
 # include "dragon.h"
 using namespace std;
 

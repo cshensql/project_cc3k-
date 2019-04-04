@@ -8,6 +8,7 @@
 #include "merchanthoard.h"
 #include "dragonhoard.h"
 #include "barriersuit.h"
+#include "compass.h"
 #include "goblin.h"
 #include "vampire.h"
 #include "werewolf.h"
@@ -15,6 +16,7 @@
 #include "merchant.h"
 #include "dragon.h"
 #include "phoenix.h"
+#include "chamber.h"
 using namespace std;
 
 Floor::Floor(Hero *hero): hero{hero} {}
@@ -200,6 +202,8 @@ void Floor::initEnemies() {
     }
     compass = helper::random(20);
     this->enemies[compass]->setCompass(true);
+    Compass *c {};
+    c->setHolder(this->enemies[compass]);
 }
 
 

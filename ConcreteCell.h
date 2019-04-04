@@ -13,7 +13,7 @@ public:
     ConcreteCell();
     ~ConcreteCell();
     void SetCell(Cell* cell);
-    Cell* GetCell();
+    Cell* GetCell() const;
     virtual char GetType() const;
 };
 

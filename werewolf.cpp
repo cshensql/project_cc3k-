@@ -1,3 +1,4 @@
+#include <iostream>
 #include "werewolf.h"
 using namespace std;
 

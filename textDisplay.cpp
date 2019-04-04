@@ -1,5 +1,8 @@
 #include <iostream>
 #include "textDisplay.h"
+#include "hero.h"
+#include "floor.h"
+#include "cell.h"
 using namespace std;
 
 TextDisplay::TextDisplay() {}

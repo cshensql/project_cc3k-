@@ -1,3 +1,4 @@
+#include <iostream>
 #include "potion.h"
 
 using namespace std;

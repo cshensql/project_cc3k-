@@ -2,7 +2,6 @@
 #define _GOBLIN_H
 
 #include "enemy.h"
-#include "hero.h"
 
 class Goblin final: public Enemy {
     static bool isHostile;

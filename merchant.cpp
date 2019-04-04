@@ -1,5 +1,6 @@
 #include "merchant.h"
 #include "merchanthoard.h"
+#include "cell.h"
 using namespace std;
 
 Merchant::Merchant() {

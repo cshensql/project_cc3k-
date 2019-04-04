@@ -2,7 +2,9 @@
 #define _COMPASS_H
 
 #include "item.h"
-#include "enemy.h"
+//#include "enemy.h"
+
+class Enemy;
 
 class Compass: public Item {
         Enemy *holder;

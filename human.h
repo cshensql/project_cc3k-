@@ -2,7 +2,6 @@
 #define _HUMAN_H
 
 #include "hero.h"
-#include "enemy.h"
 
 class Human final: public Hero {
     public:

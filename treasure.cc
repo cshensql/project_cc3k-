@@ -1,9 +1,6 @@
 #include <iostream>
 #include "treasure.h"
-#include "normal.h"
-#include "small.h"
-#include "merchanthoard.h"
-#include "dragonhoard.h"
+
 using namespace std;
 
 Treasure::Treasure(string type): type{type}, picked{false} {}

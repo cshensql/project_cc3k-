@@ -2,7 +2,6 @@
 #define _ORC_H
 
 #include "hero.h"
-#include "enemy.h"
 
 class Orc final: public Hero {
     public:

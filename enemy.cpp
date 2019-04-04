@@ -1,5 +1,7 @@
 #include "enemy.h"
 #include "helper.h"
+#include "floor.h"
+#include "hero.h"
 #include <cstdlib>
 #include <vector>
 

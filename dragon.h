@@ -2,9 +2,9 @@
 #define _DRAGON_H
 
 #include "enemy.h"
-#include "hero.h"
-#include "dragonhoard.h"
-#include "barriersuit.h"
+
+class DragonHoard;
+class BarrierSuit;
 
 class Dragon final: public Enemy {
         DragonHoard *dragonH = nullptr;

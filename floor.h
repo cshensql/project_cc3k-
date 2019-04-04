@@ -3,14 +3,14 @@
 
 #include <iostream>
 #include <vector>
-#include "cell.h"
-#include "chamber.h"
-#include "hero.h"
-#include "barriersuit.h"
 
+class Cell;
+class Hero;
 class Enemy;
 class Potion;
 class Treasure;
+class Chamber;
+class BarrierSuit;
 
 class Floor {
     Hero *hero;

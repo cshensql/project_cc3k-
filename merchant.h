@@ -2,7 +2,6 @@
 #define _MERCHANT_H
 
 #include "enemy.h"
-#include "hero.h"
 
 class Merchant final: public Enemy {
         static bool isHostile;

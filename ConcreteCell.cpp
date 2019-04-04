@@ -29,6 +29,6 @@ char ConcreteCell::GetType() const{
     return this->Type;
 }
 
-Cell* ConcreteCell::GetCell() {
+Cell* ConcreteCell::GetCell() const{
     return this->c;
 }

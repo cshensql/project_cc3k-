@@ -1,3 +1,4 @@
+#include <iostream>
 #include "troll.h"
 using namespace std;
 

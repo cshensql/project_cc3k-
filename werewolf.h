@@ -2,7 +2,6 @@
 #define _WEREWOLF_H
 
 #include "enemy.h"
-#include "hero.h"
 
 class Werewolf final: public Enemy {
     static bool isHostile;

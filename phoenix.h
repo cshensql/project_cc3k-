@@ -2,7 +2,6 @@
 #define _PHOENIX_H
 
 #include "enemy.h"
-#include "hero.h"
 
 class Phoenix final: public Enemy {
     static bool isHostile;

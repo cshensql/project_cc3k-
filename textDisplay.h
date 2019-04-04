@@ -2,8 +2,9 @@
 #define _TEXTDISPLAY_H
 
 #include <string>
-#include "floor.h"
-#include "hero.h"
+
+class Floor;
+class Hero;
 
 class TextDisplay {
     Floor *floor;

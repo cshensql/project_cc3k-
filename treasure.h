@@ -11,7 +11,7 @@ class Treasure: public Item {
     public:
 		Treasure(std::string type);
         std::string getType () const;
-        char GetType() override const;
+        char GetType() const override ;
 	    void setType(std::string typename);
         int getValue() const;
 	    void setValue(int amount);
