@@ -4,6 +4,7 @@
 #include "ConcreteCell.h"
 
 class Item: public ConcreteCell {
+    protected:
         bool pickable;
     public:
         bool isPickable() const;
