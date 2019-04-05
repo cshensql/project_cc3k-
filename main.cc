@@ -98,21 +98,21 @@ int main() {
             if(command == "no" || command == "so" || command == "ea" || command == "we" ||
                     command == "ne" || command == "nw" || command == "se" || command == "sw") {
                 string move_dir;
-                if(dir == "no") {
+                if(command == "no") {
                     move_dir = "North";
-                } else if(dir == "so") {
+                } else if(command == "so") {
                     move_dir = "South";
-                } else if(dir == "ea") {
+                } else if(command == "ea") {
                     move_dir = "East";
-                } else if(dir == "we") {
+                } else if(command == "we") {
                     move_dir = "West";
-                } else if(dir == "ne") {
+                } else if(command == "ne") {
                     move_dir = "Northeast";
-                } else if(dir == "nw") {
+                } else if(command == "nw") {
                     move_dir = "Northwest";
-                } else if(dir == "se") {
+                } else if(command == "se") {
                     move_dir = "Southeast";
-                } else if(dir == "sw") {
+                } else if(command == "sw") {
                     move_dir = "Southwest";
                 }
 
