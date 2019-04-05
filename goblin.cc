@@ -1,3 +1,4 @@
+#include <iostream>
 #include "goblin.h"
 
 using namespace std;
@@ -10,6 +11,10 @@ Goblin::Goblin() {
 
 double Goblin::dropGold() const{
 	return 1;
+}
+
+char Goblin::GetType() const {
+	return 'N';
 }
 
 /*void Goblin::setHostile(bool isHostile) {

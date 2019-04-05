@@ -19,4 +19,8 @@ bool Vampire::getHostile() const{
 	return this->isHostile;
 }*/
 
+char Vampire::GetType() const {
+	return 'V';
+}
+
 Vampire::~Vampire() {}

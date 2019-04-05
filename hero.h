@@ -17,6 +17,7 @@ class Hero: public Character {
         bool hasCompass = false;
         Floor *floor = nullptr;
     public:
+    void SetType();
         char GetType() const override;
         std::string getRace() const;
         double getGold() const;

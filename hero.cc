@@ -15,6 +15,11 @@
 
 using namespace std;
 
+void Hero::SetType() {
+    this->Type = '@';
+}
+
+
 char Hero::GetType() const {
     return '@';
 }

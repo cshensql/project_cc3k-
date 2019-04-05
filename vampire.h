@@ -10,6 +10,7 @@ class Vampire final: public Enemy {
         double dropGold() const override;
 //        void setHostile(bool isHostile) override ;
 //        bool getHostile() const override ;
+        char GetType() const override;
         ~Vampire();
 };
 

@@ -26,6 +26,10 @@ BarrierSuit *Dragon::getBarrierSuit() const {
     return this->barrierS;
 }
 
+char Dragon::GetType() const {
+	return 'D';
+}
+
 /*void Dragon::setHostile(bool isHostile) {
 	Dragon::isHostile = isHostile;
 }

@@ -72,7 +72,7 @@ void Enemy::attack() {
 }
 
 Enemy::~Enemy() {
-    delete hero;
-    delete floor;
+    //delete hero;
+    //delete floor;
 }
 

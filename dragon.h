@@ -17,6 +17,7 @@ class Dragon final: public Enemy {
         void setBarrierSuit(BarrierSuit *barrier_suit);
         DragonHoard *getDragonHoard() const;
         BarrierSuit *getBarrierSuit() const;
+    char GetType() const override;
 //        void setHostile(bool isHostile) override;
 //        bool getHostile() const override;
         ~Dragon();

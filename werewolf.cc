@@ -19,4 +19,8 @@ bool Werewolf::getHostile() const{
 	return this->isHostile;
 }*/
 
+char Werewolf::GetType() const {
+	return 'W';
+}
+
 Werewolf::~Werewolf() {}

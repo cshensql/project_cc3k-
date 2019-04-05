@@ -25,4 +25,9 @@ bool Merchant::getHostile() const{
 	return Merchant::isHostile;
 }
 
+char Merchant::GetType() const {
+	return 'M';
+}
+
+
 Merchant::~Merchant() {}
