@@ -7,6 +7,11 @@
 #include "compass.h"
 #include "helper.h"
 #include "merchant.h"
+#include "barriersuit.h"
+#include "dragon.h"
+#include "dragonhoard.h"
+#include "enemy.h"
+#include <cmath>
 
 using namespace std;
 
@@ -206,13 +211,14 @@ double Hero::attack(Enemy *enemy) {
     }
     enemy->setHp(enemy->getHp() - damage);
     if (enemy->getType() == 'M') {
-        enemy->setHostile(true);
+	Merchant *merchant = dynamic_cast<Merchant *>(enemy);
+        merchant->setHostile(true);
     }
     if (!enemy->isAlive()) {
         if (enemy->getType() == 'D') {
-            Dragon *dragon = dynamic_cast<Enemy *>(enemy);
+            Dragon *dragon = dynamic_cast<Dragon *>(enemy);
             if (dragon->getDragonHoard()) { dragon->getDragonHoard()->setPickable(true); }
-            if (dragon->getBarrierHoard()) { dragon->getBarrierSuit()->setPickable(true); }
+            if (dragon->getBarrierSuit()) { dragon->getBarrierSuit()->setPickable(true); }
         }
         double drop_gold = enemy->dropGold();
         if (race == "Dwarf") {

@@ -1,10 +1,9 @@
 #ifndef _FLOOR_H
 #define _FLOOR_H
 
-#include <iostream>
 #include <vector>
+#include "cell.h"
 
-class Cell;
 class Hero;
 class Enemy;
 class Potion;

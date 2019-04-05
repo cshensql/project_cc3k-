@@ -3,9 +3,10 @@
 
 #include <string>
 #include "character.h"
-#include "enemy.h"
 
+class Enemy;
 class Potion;
+class Floor;
 
 class Hero: public Character {
     protected:

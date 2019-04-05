@@ -1,4 +1,3 @@
-#include <iostream>
 #include "troll.h"
 using namespace std;
 
@@ -6,18 +5,19 @@ Troll::Troll() {
 	type = 'T';
 	hasCompass = false;
 	moveable = true;
+//	Troll::isHostile = true;
 }
 
 double Troll::dropGold() const {
 	return 1;
 }
 
-void Troll::setHostile(bool isHostile) {
-	this->isHostile = isHostile;
+/*void Troll::setHostile(bool ifHostile) {
+	Troll::isHostile = ifHostile;
 }
 
 bool Troll::getHostile() const {
-	return this->isHostile;
-}
+	return Troll::isHostile;
+} */
 
 Troll::~Troll() {}

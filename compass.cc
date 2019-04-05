@@ -1,4 +1,5 @@
 #include "compass.h"
+#include "enemy.h"
 
 Compass::Compass():holder{nullptr} {}
 

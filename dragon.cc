@@ -1,5 +1,7 @@
-#include <iostream>
-# include "dragon.h"
+#include "dragon.h"
+#include "dragonhoard.h"
+#include "barriersuit.h"
+
 using namespace std;
 
 Dragon::Dragon() {}
@@ -24,13 +26,13 @@ BarrierSuit *Dragon::getBarrierSuit() const {
     return this->barrierS;
 }
 
-void Dragon::setHostile(bool isHostile) {
-	this->isHostile = isHostile;
+/*void Dragon::setHostile(bool isHostile) {
+	Dragon::isHostile = isHostile;
 }
 
 bool Dragon::getHostile() const{
 	return this->isHostile;
-}
+}*/
 
 Dragon::~Dragon() {
 	delete dragonH;

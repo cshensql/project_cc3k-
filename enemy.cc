@@ -5,6 +5,7 @@
 #include "cell.h"
 #include <cstdlib>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 

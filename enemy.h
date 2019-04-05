@@ -12,17 +12,17 @@ class Enemy: public Character {
         Hero *hero = nullptr;
         bool hasCompass = false;
         bool moveable;
-	static bool isHostile;
+//	static bool isHostile;
         Floor *floor = nullptr;
     public:
         void setHero(Hero *hero);
         void setFloor(Floor *floor);
-		void setCompass(bool has_compass);
+	void setCompass(bool has_compass);
         char getType() const;
         void moveNext();
         void attack();
-	virtual void setHostile(bool isHostile) = 0;
-	virtual bool getHostile() const = 0;
+//	virtual void setHostile(bool isHostile) = 0;
+//	virtual bool getHostile() const = 0;
 	virtual double dropGold() const = 0;
         virtual ~Enemy() = 0;
 };

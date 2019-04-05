@@ -7,7 +7,6 @@ Merchant::Merchant() {
 	type = 'M';
 	hasCompass = false;
 	moveable = true;
-	isHostile = false;
 }
 
 double Merchant::dropGold() const {
@@ -18,12 +17,12 @@ double Merchant::dropGold() const {
 	return 4;
 }
 
-void Merchant::setHostile(bool isHostile) {
-	this->isHostile = isHostile;
+void Merchant::setHostile(bool ifHostile) {
+	Merchant::isHostile = ifHostile;
 }
 
 bool Merchant::getHostile() const{
-	return this->isHostile;
+	return Merchant::isHostile;
 }
 
 Merchant::~Merchant() {}

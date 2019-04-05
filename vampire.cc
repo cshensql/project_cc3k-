@@ -1,4 +1,3 @@
-#include <iostream>
 #include "vampire.h"
 using namespace std;
 
@@ -12,12 +11,12 @@ double Vampire::dropGold() const {
 	return 1;
 }
 
-void Vampire::setHostile(bool isHostile) {
-	this->isHostile = isHostile;
+/*void Vampire::setHostile(bool isHostile) {
+	Vampire::isHostile = isHostile;
 }
 
 bool Vampire::getHostile() const{
 	return this->isHostile;
-}
+}*/
 
 Vampire::~Vampire() {}

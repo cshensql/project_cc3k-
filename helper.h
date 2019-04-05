@@ -1,12 +1,8 @@
 #ifndef _HELPER_H
 #define _HELPER_H
 
-#include <iostream>
 #include <string>
-#include <fstream>
 #include <vector>
-#include <cmath>
-#include <cstdlib>
 
 class helper {
 public:

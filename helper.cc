@@ -1,4 +1,8 @@
 #include "helper.h"
+#include <cmath>
+#include <cstdlib>
+#include <fstream>
+
 using namespace std;
 
 

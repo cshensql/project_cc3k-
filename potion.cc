@@ -1,11 +1,14 @@
-#include <iostream>
 #include "potion.h"
 
 using namespace std;
 
-Potion::Potion(): pickable{true} {}
+Potion::Potion(){
+    setPickable(true);
+}
 
-Potion::Potion(string potion_type): type{potion_type}, pickable{true} {}
+Potion::Potion(string potion_type): type{potion_type}{
+    setPickable(true);
+}
 
 char Potion::GetType() const {
     return 'P';
