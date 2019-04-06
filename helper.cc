@@ -25,21 +25,21 @@ int helper::random(int max) {
 }
 
 int helper::findX(int current_x, string direction) {
-    if (direction == "ea" || direction == "ne" || direction == "se") {
+    if (direction == "so" || direction == "se" || direction == "sw") {
         return current_x + 1;
-    } else if (direction == "we" || direction == "nw" || direction == "sw") {
+    } else if (direction == "ne" || direction == "nw" || direction == "no") {
         return current_x - 1;
-    } else if (direction == "no" || direction == "so") {
+    } else if (direction == "ea" || direction == "we") {
         return current_x;
     }
 }
 
 int helper::findY(int current_y, string direction) {
-    if (direction == "no" || direction == "ne" || direction == "nw") {
+    if (direction == "ne" || direction == "se" || direction == "ea") {
         return current_y + 1;
-    } else if (direction == "so" || direction == "se" || direction == "sw") {
+    } else if (direction == "sw" || direction == "we" || direction == "nw") {
         return current_y - 1;
-    } else if (direction == "ea" || direction == "we") {
+    } else if (direction == "no" || direction == "so") {
         return current_y;
     }
 }
