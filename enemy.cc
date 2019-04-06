@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <vector>
 #include <cmath>
+#include "merchant.h"
 
 using namespace std;
 
@@ -62,11 +63,19 @@ void Enemy::moveNext() {
 }
 
 void Enemy::attack() {
+	if (this->getHp() == 0) {
+	// drop compass???
+	    return;
+	}
+	if (this->getType() == 'M') {
+	    Merchant *merchant = dynamic_cast<Merchant *>(this);
+	    if (merchant->getHostile() == false) return;
+	}
 	int miss_random = helper::random(2);
 	if (miss_random == 0) {
 		return;
 	}
-	double damage = ceil((100 / (100 + hero->getDef())) * getAtk());
+	double damage = ceil((100.00 / (100.00 + hero->getDef())) * getAtk());
 	//int damage = helper::ceiling((100 / (100 + hero->getDef())) * getAtk());
 
 	if (hero->carryBarrier()) {

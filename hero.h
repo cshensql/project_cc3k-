@@ -34,7 +34,7 @@ class Hero: public Character {
         bool pickGold(Cell &gold_cell); // return a boolean value to check if gold is picked up by hero
         void pickCompass(std::string direction);
         void pickBarrierSuit(std::string direction);
-        Enemy *attackDir(std::string direction);
+        Enemy *attackDir(std::string direction); // return a nullptr if there is no enemy at the direction
         double attack(Enemy *enemy);
         virtual void setDefaultAtkDef() = 0;
         virtual ~Hero() = 0;

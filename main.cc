@@ -307,6 +307,7 @@ int main() {
                 if(dir == "no" || dir == "so" || dir == "ea" || dir == "we" ||
                    dir == "ne" || dir == "nw" || dir == "se" || dir == "sw") {
                     Enemy *enemy = hero->attackDir(dir);
+		    if (enemy == nullptr) continue; // no enemy at the specified dir
                     int heroHp = hero->getHp();
                     double damage = hero->attack(enemy);
                     int enemyHp = enemy->getHp();
