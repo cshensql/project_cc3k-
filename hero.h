@@ -7,6 +7,7 @@
 class Enemy;
 class Potion;
 class Floor;
+class Cell;
 
 class Hero: public Character {
     protected:
@@ -30,7 +31,7 @@ class Hero: public Character {
         void setFloor(Floor *f);
         void move(std::string direction);
         Potion *pickPotion(std::string direction);
-        void pickGold(std::string direction);
+        bool pickGold(Cell &gold_cell); // return a boolean value to check if gold is picked up by hero
         void pickCompass(std::string direction);
         void pickBarrierSuit(std::string direction);
         Enemy *attackDir(std::string direction);
