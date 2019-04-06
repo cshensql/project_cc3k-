@@ -12,6 +12,7 @@
 #include "dragonhoard.h"
 #include "enemy.h"
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -66,10 +67,12 @@ void Hero::move(string direction) {
     int X = helper::findX(origin_X, direction);
     int Y = helper::findY(origin_Y, direction);
     Cell new_cell = floor->getCell(X, Y);
-    if (new_cell.getCellType() == 'G') {
-        // call pickGold()
+    if (!new_cell.canMove()) return;
+    ConcreteCell *conc = new_cell.GetConcreteCell();
+    if (conc != nullptr && conc->GetType() == 'G') {
+	bool picked = this->pickGold(new_cell);
+	if (!picked) return;
     }
-    if (!new_cell.canMove()) { return; }
     this->c = &this->floor->getCell(new_cell.getX(), new_cell.getY());
     this->x = new_cell.getX();
     this->y = new_cell.getY();
@@ -144,18 +147,11 @@ Potion *Hero::pickPotion(string direction) {
     return nullptr;
 }
         
-void Hero::pickGold(string direction) {
-    int X = getX();
-    int Y = getY();
-    Cell origin_cell = floor->getCell(X, Y);
-    X = helper::findX(X, direction);
-    Y = helper::findY(Y, direction);
-    Cell gold_cell = floor->getCell(X, Y);
-    char cell_type = gold_cell.getCellType();
-    if (cell_type != 'G') { return; }
+bool Hero::pickGold(Cell &gold_cell) {
     ConcreteCell *conc = gold_cell.GetConcreteCell();
+    if (conc == nullptr || conc->GetType() != 'G') return false;
     Treasure *gold = dynamic_cast<Treasure *>(conc);
-    if (!gold->isPickable()) { return; }
+    if (!gold->isPickable()) { return false; }
     if (race == "Dwarf") {
         goldNum += 2 * gold->getValue();
     } else if (race == "Elves") {
@@ -164,9 +160,7 @@ void Hero::pickGold(string direction) {
         goldNum += gold->getValue();
     }
     gold_cell.deleteConcrete();
-    ConcreteCell *ccell = origin_cell.GetConcreteCell();
-    gold_cell.SetConcreteCell(ccell);
-    origin_cell.deleteConcrete();
+    return true;
 }
         
 void Hero::pickCompass(string direction) {
