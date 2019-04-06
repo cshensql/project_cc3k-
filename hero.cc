@@ -12,7 +12,6 @@
 #include "dragonhoard.h"
 #include "enemy.h"
 #include <cmath>
-#include <iostream>
 
 using namespace std;
 
@@ -65,9 +64,7 @@ void Hero::move(string direction) {
     int origin_X = getX();
     int origin_Y = getY();
     int X = helper::findX(origin_X, direction);
-    cout << "old x:" << origin_X << " and new x:" << X << endl;
     int Y = helper::findY(origin_Y, direction);
-    cout << "old y:" << origin_Y << " and new y:" << Y << endl;
     Cell new_cell = floor->getCell(X, Y);
     if (new_cell.getCellType() == 'G') {
         // call pickGold()
@@ -78,7 +75,6 @@ void Hero::move(string direction) {
     this->y = new_cell.getY();
     this->floor->getCell(this->x, this->y).SetConcreteCell(this);
     this->floor->getCell(origin_X, origin_Y).deleteConcrete();
-    cout << this->x << " and " << this->y << endl;
 }
     
 Potion *Hero::pickPotion(string direction) {
