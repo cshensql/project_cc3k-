@@ -210,16 +210,16 @@ int main() {
                 }
                 string Potions = "";
                 for (string s : neighbours) {
-                    Potions += s + "";
+                    Potions += s + " ";
                 }
                 if (unknown_potion && Potions != "") {
-                    display->updateAction("PC moves " + move_dir + "and sees " + Potions + "and unknown potions.");
+                    display->updateAction("PC moves " + move_dir + " and sees " + Potions + "and unknown potions.");
                 }
                 else if (unknown_potion) {
-                    display->updateAction("PC moves " + move_dir + "and sees " +  "an unknown potion.");
+                    display->updateAction("PC moves " + move_dir + " and sees " +  "an unknown potion.");
                 }
                 else if (Potions != "" && !unknown_potion) {
-                    display->updateAction("PC moves " + move_dir + "and sees " + Potions + "potions.");
+                    display->updateAction("PC moves " + move_dir + " and sees " + Potions + "potions.");
                 }
                 else {
                     display->updateAction("PC moves " + move_dir + ".");
