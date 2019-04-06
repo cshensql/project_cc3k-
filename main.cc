@@ -32,6 +32,8 @@ int main() {
     bool playing = true; //will become false if the player wants to quit
 
     while (playing) {
+        srand(time(NULL));
+
         cout << "Welcome to CC3K+! Please select your hero from the following: " << endl;
         cout << "Human: 140 HP, 20 Atk, 20 Def                                          enter 'h' to be a human" << endl;
         cout << "Dwarf: 100 HP, 20 Atk, 30 Def, gold is doubled in value                enter 'd' to be a dwarf" << endl;

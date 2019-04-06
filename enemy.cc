@@ -1,3 +1,4 @@
+#include <iostream>
 #include "enemy.h"
 #include "helper.h"
 #include "floor.h"
@@ -34,23 +35,32 @@ void Enemy::moveNext() {
 		attack();
 		return;
 	}
-	if (!moveable) { return; }
-	Cell origin_cell = floor->getCell(enemy_x, enemy_y);
-	vector<Cell> moveable_cells;
-	for (int i = enemy_x - 1; i <= enemy_x + 1; ++i) {
-		for (int j = enemy_y - 1; j <= enemy_y + 1; ++j) {
-			if (i == enemy_x && j == enemy_y) { continue; }
-			Cell neighbour_cell = floor->getCell(i, j);
-			if (neighbour_cell.isOccupied()) { return; }
-			moveable_cells.emplace_back(neighbour_cell);
+
+	if (moveable) {
+		Cell origin_cell = floor->getCell(enemy_x, enemy_y);
+		vector<Cell> moveable_cells;
+		for (int i = enemy_x - 1; i <= enemy_x + 1; ++i) {
+			for (int j = enemy_y - 1; j <= enemy_y + 1; ++j) {
+				if (i == enemy_x && j == enemy_y) {
+					continue;
+				}
+				Cell neighbour_cell = floor->getCell(i, j);
+				if (neighbour_cell.isOccupied()) {
+					continue;
+				}
+				moveable_cells.emplace_back(neighbour_cell);
+			}
 		}
+		int count_moveable = moveable_cells.size();
+		int random_num = helper::random(count_moveable);
+		Cell next_cell = moveable_cells[random_num];
+		//ConcreteCell *ccell = origin_cell.GetConcreteCell();
+		this->c = &this->floor->getCell(next_cell.getX(), next_cell.getY());
+		this->x = next_cell.getX();
+		this->y = next_cell.getY();
+		this->floor->getCell(this->x, this->y).SetConcreteCell(this);
+		this->floor->getCell(enemy_x, enemy_y).deleteConcrete();
 	}
-	int count_moveable = moveable_cells.size();
-	int random_num = helper::random(count_moveable);
-	Cell next_cell = moveable_cells.at(random_num);
-	ConcreteCell *ccell = origin_cell.GetConcreteCell();
-	next_cell.SetConcreteCell(ccell);
-	origin_cell.deleteConcrete();
 }
 
 void Enemy::attack() {

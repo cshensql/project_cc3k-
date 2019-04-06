@@ -1,3 +1,4 @@
+#include <iostream>
 #include "werewolf.h"
 using namespace std;
 
@@ -5,6 +6,9 @@ Werewolf::Werewolf() {
 	type = 'W';
 	hasCompass = false;
 	moveable = true;
+	setHp(120);
+	setAtk(30);
+	setDef(5);
 }
 
 double Werewolf::dropGold() const {

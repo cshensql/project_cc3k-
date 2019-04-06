@@ -161,32 +161,20 @@ void Floor::initEnemies() {
             Enemy *e;
             if(!this->getCell(x, y).isOccupied()) {
                 enemyType = helper::random(18);
-                switch(enemyType) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        e = new Werewolf();
-                    case 4:
-                    case 5:
-                    case 6:
-                        e = new Vampire();
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                        e = new Goblin();
-                    case 12:
-                    case 13:
-                        e = new Troll();
-                    case 14:
-                    case 15:
-                        e = new Phoenix();
-                    case 16:
-                    case 17:
-                        e = new Merchant();
+                if(enemyType == 0 || enemyType == 1 || enemyType == 2 || enemyType == 3) {
+                    e = new Werewolf();
+                } else if(enemyType == 4 || enemyType == 5 || enemyType == 6) {
+                    e = new Vampire();
+                } else if(enemyType == 7 || enemyType == 8 || enemyType == 9 || enemyType == 10 || enemyType == 11) {
+                    e = new Goblin();
+                } else if(enemyType == 12 || enemyType == 13) {
+                    e = new Troll();
+                } else if(enemyType == 14 || enemyType == 15) {
+                    e = new Phoenix();
+                } else if(enemyType == 16 || enemyType == 17) {
+                    e = new Merchant();
                 }
+
                 e->setX(x);
                 e->setY(y);
                 e->setHero(this->hero);

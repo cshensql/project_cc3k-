@@ -7,6 +7,9 @@ Goblin::Goblin() {
 	type = 'N';
 	hasCompass = false;
 	moveable = true;
+	setHp(70);
+	setAtk(5);
+	setDef(10);
 }
 
 double Goblin::dropGold() const{

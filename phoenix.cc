@@ -1,3 +1,4 @@
+#include <iostream>
 #include "phoenix.h"
 using namespace std;
 
@@ -5,6 +6,9 @@ Phoenix::Phoenix() {
 	type = 'X';
 	hasCompass = false;
 	moveable = true;
+	setHp(50);
+	setAtk(35);
+	setDef(20);
 }
 
 double Phoenix::dropGold() const{

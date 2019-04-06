@@ -2,6 +2,7 @@
 #define FINAL_PROJECT_BASICCELL_H
 
 class BasicCell{
+protected:
     int x;
     int y;
 public:

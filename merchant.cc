@@ -7,6 +7,9 @@ Merchant::Merchant() {
 	type = 'M';
 	hasCompass = false;
 	moveable = true;
+	setHp(30);
+	setAtk(70);
+	setDef(5);
 }
 
 double Merchant::dropGold() const {

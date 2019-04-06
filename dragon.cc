@@ -4,7 +4,14 @@
 
 using namespace std;
 
-Dragon::Dragon() {}
+Dragon::Dragon() {
+	type = 'D';
+	hasCompass = false;
+	moveable = false;
+	setHp(150);
+	setAtk(20);
+	setDef(20);
+}
 
 double Dragon::dropGold() const {
 	return 6;
