@@ -69,8 +69,12 @@ void Hero::move(string direction) {
     if (!new_cell.canMove()) return;
     ConcreteCell *conc = new_cell.GetConcreteCell();
     if (conc != nullptr && conc->GetType() == 'G') {
-	    bool picked = this->pickGold(new_cell);
-	    if (!picked) return;
+	bool picked = this->pickGold(new_cell);
+	if (!picked) return;
+    }
+    if (conc != nullptr && conc->GetType() == 'B') {
+        this->pickBarrierSuit(direction);
+	if (this->carryBarrier() == false) return;    // BarrierSuit is not pickable     
     }
     this->c = &this->floor->getCell(new_cell.getX(), new_cell.getY());
     this->x = new_cell.getX();

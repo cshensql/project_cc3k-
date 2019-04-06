@@ -129,14 +129,14 @@ int main() {
                 int newX = helper::findX(f->getHero()->getX(), command);
                 int newY = helper::findY(f->getHero()->getY(), command);
                 double goldnum = hero->getGold();
-
                 if(f->getCell(newX, newY).canMove()) {
-                    if(f->getCell(newX, newY).GetConcreteCell() && f->getCell(newX, newY).GetConcreteCell()->GetType() == 'G') {
-                        Item *it = dynamic_cast<Item *> (f->getCell(newX, newY).GetConcreteCell());
+		    ConcreteCell *conc = f->getCell(newX, newY).GetConcreteCell();
+                    if(conc != nullptr && ((conc->GetType() == 'G') || (conc->GetType() == 'B'))) {
+                        Item *it = dynamic_cast<Item *> (conc);
                         if(it->isPickable()) {
                             hero->move(command);
                         } else {
-                            display->updateAction("You must kill the Dragon in order to pick this treasure!");
+                            display->updateAction("You must kill the Dragon in order to pick this item!");
                             f->nextTurn();
                             display->updateHeroInfo(hero);
                             display->render();

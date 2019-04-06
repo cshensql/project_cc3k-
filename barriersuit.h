@@ -4,7 +4,7 @@
 #include "item.h"
 
 class BarrierSuit: public Item {
-        bool pickable;
+//        bool pickable;
     public:
 	char GetType() const override;
         BarrierSuit();
