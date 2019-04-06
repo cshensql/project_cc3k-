@@ -257,22 +257,17 @@ void Floor::initTreasures() {
             Treasure *t;
             if(!this->getCell(x, y).isOccupied()) {
                 treasureType = helper::random(8);
-                switch(treasureType) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                        treasureName = "normal";
-                        t = new Normal();
-                    case 5:
-                        treasureName = "dragon hoard";
-                        t = new DragonHoard();
-                    case 6:
-                    case 7:
-                        treasureName = "small hoard";
-                        t = new Small();
+                if(treasureType == 0 || treasureType == 1 || treasureType == 2 || treasureType == 3 || treasureType == 4) {
+                    treasureName = "normal";
+                    t = new Normal();
+                } else if(treasureType == 5) {
+                    treasureName = "dragon hoard";
+                    t = new DragonHoard();
+                } else if(treasureType == 6 || treasureType == 7) {
+                    treasureName = "small hoard";
+                    t = new Small();
                 }
+
                 t->setX(x);
                 t->setY(y);
                 t->SetCell(&this->getCell(x, y));

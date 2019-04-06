@@ -9,7 +9,7 @@ Cell::Cell(char type, int x, int y): type{type}, BasicCell(x, y) {}
 Cell::~Cell() {}
 
 bool Cell::isOccupied() {
-    return this->type != '.';
+    return this->type != '.' || this->GetConcreteCell() != nullptr;
 }
 
 bool Cell::canMove() {
