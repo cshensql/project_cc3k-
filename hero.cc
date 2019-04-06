@@ -70,8 +70,8 @@ void Hero::move(string direction) {
     if (!new_cell.canMove()) return;
     ConcreteCell *conc = new_cell.GetConcreteCell();
     if (conc != nullptr && conc->GetType() == 'G') {
-	bool picked = this->pickGold(new_cell);
-	if (!picked) return;
+	    bool picked = this->pickGold(new_cell);
+	    if (!picked) return;
     }
     // To do: pick compass ??
 
@@ -231,16 +231,20 @@ double Hero::attack(Enemy *enemy) {
             if (dragon->getDragonHoard()) { dragon->getDragonHoard()->setPickable(true); }
             if (dragon->getBarrierSuit()) { dragon->getBarrierSuit()->setPickable(true); }
             drop_gold = 0;
-	} else {
-	    drop_gold = enemy->dropGold();
-	}
-        if (race == "Dwarf") {
-            goldNum += 2 * drop_gold;
-        } else if (race == "Elves") {
-            goldNum += drop_gold / 2;
-        } else {
-            goldNum += drop_gold;
+	    } else {
+	        drop_gold = enemy->dropGold();
+	    }
+
+        if(enemy->getType() != 'M') { // Add gold num only Enemy is not merchant
+            if (race == "Dwarf") {
+                goldNum += 2 * drop_gold;
+            } else if (race == "Elves") {
+                goldNum += drop_gold / 2;
+            } else {
+                goldNum += drop_gold;
+            }
         }
+
 
         // TO-DO: drop compass ???
 //	if (enemy.hasCompass)

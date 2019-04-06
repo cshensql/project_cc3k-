@@ -103,6 +103,7 @@ int main() {
             }
             cin >> command;
             display->updateAction(command);
+
             //move direction
             if(command == "no" || command == "so" || command == "ea" || command == "we" ||
                     command == "ne" || command == "nw" || command == "se" || command == "sw") {
@@ -127,9 +128,23 @@ int main() {
 
                 int newX = helper::findX(f->getHero()->getX(), command);
                 int newY = helper::findY(f->getHero()->getY(), command);
+                double goldnum = hero->getGold();
 
                 if(f->getCell(newX, newY).canMove()) {
-                    hero->move(command);
+                    if(f->getCell(newX, newY).GetConcreteCell() && f->getCell(newX, newY).GetConcreteCell()->GetType() == 'G') {
+                        Item *it = dynamic_cast<Item *> (f->getCell(newX, newY).GetConcreteCell());
+                        if(it->isPickable()) {
+                            hero->move(command);
+                        } else {
+                            display->updateAction("You must kill the Dragon in order to pick this treasure!");
+                            f->nextTurn();
+                            display->updateHeroInfo(hero);
+                            display->render();
+                            continue;
+                        }
+                    } else {
+                        hero->move(command);
+                    }
                 } else {
                     display->updateAction("Invalid move direction!!!");
                     f->nextTurn();
@@ -231,12 +246,19 @@ int main() {
                 for (string s : neighbours) {
                     Potions += s + " ";
                 }
-                if (unknown_potion && Potions != "") {
+                if((hero->getGold() - goldnum) > 0 && unknown_potion) {
+                    display->updateAction("PC moves " + move_dir + " and picks "
+                                          + to_string(hero->getGold() - goldnum) + " Golds and sees an unknown potion.");
+                }
+                else if((hero->getGold() - goldnum) > 0) {
+                    display->updateAction("PC moves " + move_dir + " and picks " + to_string(hero->getGold() - goldnum) + " Golds.");
+                }
+                else if (unknown_potion && Potions != "") {
                     display->updateAction("PC moves " + move_dir + " and sees " + Potions + "and unknown potions.");
                     unknown_potion = false;
                 }
                 else if (unknown_potion) {
-                    display->updateAction("PC moves " + move_dir + " and sees " +  "an unknown potion.");
+                    display->updateAction("PC moves " + move_dir + " and sees an unknown potion.");
                     unknown_potion = false;
                 }
                 else if (Potions != "" && !unknown_potion) {
@@ -308,13 +330,14 @@ int main() {
                    dir == "ne" || dir == "nw" || dir == "se" || dir == "sw") {
                     Enemy *enemy = hero->attackDir(dir);
 		    if (enemy == nullptr) continue; // no enemy at the specified dir
+                    char EnemyName = enemy->getType();
                     int heroHp = hero->getHp();
                     double damage = hero->attack(enemy);
                     int enemyHp = enemy->getHp();
                     f->nextTurn();
                     int damageTaken = heroHp - hero->getHp();
-                    display->updateAction("PC deals " + to_string(damage) + " damage to " + enemy->getType() + " ("
-                        + to_string(enemyHp) + " HP). " + enemy->getType() + " deals " + to_string(damageTaken) + " to PC.");
+                    display->updateAction("PC deals " + to_string(damage) + " damage to " + EnemyName + " ("
+                        + to_string(enemyHp) + " HP). " + EnemyName + " deals " + to_string(damageTaken) + " to PC.");
                     display->updateHeroInfo(hero);
                     display->render();
                     continue;

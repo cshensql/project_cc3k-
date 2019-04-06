@@ -297,15 +297,15 @@ void Floor::initTreasures() {
                             newy = helper::findY(y, s);
                             if(count == dragon && !this->getCell(newx, newy).isOccupied()) {
                                 Enemy *e = new Dragon();
-                                Dragon *d = dynamic_cast<Dragon *> (e);
-                                d->setX(newx);
-                                d->setY(newy);
-                                d->setHero(this->hero);
-                                d->setFloor(this);
-                                d->setDragonHoard(dh);
-                                this->enemies.push_back(e);
+                                e->setX(newx);
+                                e->setY(newy);
+                                e->setHero(this->hero);
+                                e->setFloor(this);
                                 this->getCell(newx,newy).SetConcreteCell(e);
                                 e->SetCell(&this->getCell(newx, newy));
+                                this->enemies.push_back(e);
+                                Dragon *d = dynamic_cast<Dragon *> (e);
+                                d->setDragonHoard(dh);
                                 dragon_born = true;
                                 break;
                             }
@@ -367,15 +367,15 @@ void Floor::initBarrierSuit() {
                         newy = helper::findY(y, s);
                         if(count == dragon && !this->getCell(newx, newy).isOccupied()) {
                             Enemy *e = new Dragon();
-                            Dragon *d = dynamic_cast<Dragon *> (e);
-                            d->setX(newx);
-                            d->setY(newy);
-                            d->setHero(this->hero);
-                            d->setFloor(this);
-                            d->setBarrierSuit(bs);
-                            this->enemies.push_back(e);
+                            e->setX(newx);
+                            e->setY(newy);
+                            e->setHero(this->hero);
+                            e->setFloor(this);
                             this->getCell(newx,newy).SetConcreteCell(e);
                             e->SetCell(&this->getCell(newx, newy));
+                            this->enemies.push_back(e);
+                            Dragon *d = dynamic_cast<Dragon *> (e);
+                            d->setBarrierSuit(bs);
                             dragon_born = true;
                             break;
                         }
@@ -424,22 +424,18 @@ Hero *Floor::getHero() {
 void Floor::nextTurn() {
     for(int i = 0; i < this->enemies.size(); i++) {
         if(enemies[i] && !enemies[i]->isAlive()) {
-            enemies[i]->GetCell()->deleteConcrete();
             double goldNum = enemies[i]->dropGold();
+            enemies[i]->GetCell()->deleteConcrete();
             Treasure *t;
-            if(goldNum == 1) {
-                t = new Normal();
-            } else if(goldNum == 2) {
-                t = new Small();
-            } else if(goldNum == 4) {
+            if(goldNum == 4) {
                 t = new MerchantHoard();
-            } else if(goldNum == 6) {
-                t = new DragonHoard();
+                enemies[i]->GetCell()->SetConcreteCell(t);
+                t->SetCell(&this->getCell(enemies[i]->getX(), enemies[i]->getY()));
+                this->treasures.push_back(t);
             }
-            enemies[i]->GetCell()->SetConcreteCell(t);
-            this->treasures.push_back(t);
             delete enemies[i];
             enemies[i] = nullptr;
+            break;
         }
     }
 

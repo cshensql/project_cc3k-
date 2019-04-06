@@ -3,6 +3,9 @@
 #include "helper.h"
 #include "floor.h"
 #include "hero.h"
+#include "dragon.h"
+#include "dragonhoard.h"
+#include "barriersuit.h"
 #include "cell.h"
 #include <cstdlib>
 #include <vector>
@@ -32,7 +35,23 @@ void Enemy::moveNext() {
 	int enemy_y = getY();
 	int hero_x = hero->getX();
 	int hero_y = hero->getY();
-	if (abs(enemy_x - hero_x) <= 1 && abs(enemy_y - hero_y) <= 1) {
+	if(this->getType() == 'D') {
+		Dragon *d = dynamic_cast<Dragon *> (this);
+		if(d->getDragonHoard()){
+			if(abs(d->getDragonHoard()->getX() - hero_x) <= 1 &&
+			   abs(d->getDragonHoard()->getY() - hero_y) <= 1) {
+				attack();
+				return;
+			}
+		} else if(d->getBarrierSuit()) {
+			if(abs(d->getBarrierSuit()->getX() - hero_x) <= 1 &&
+			   abs(d->getBarrierSuit()->getY() - hero_y) <= 1) {
+				attack();
+				return;
+			}
+		}
+
+	} else if (abs(enemy_x - hero_x) <= 1 && abs(enemy_y - hero_y) <= 1) {
 		attack();
 		return;
 	}
