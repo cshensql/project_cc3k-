@@ -1,5 +1,6 @@
 #include <iostream>
 #include "cell.h"
+#include "ConcreteCell.h"
 using namespace std;
 
 Cell::Cell() {}
@@ -13,7 +14,8 @@ bool Cell::isOccupied() {
 }
 
 bool Cell::canMove() {
-    return (type == '.') || (type == '+') || (type == '#') || (type == '\\');
+    return ((type == '.') || (type == '+') || (type == '#') || (type == '\\')) &&
+            (this->GetConcreteCell() == nullptr || this->GetConcreteCell()->GetType() == 'G');
 }
 
 bool Cell::isStair() {

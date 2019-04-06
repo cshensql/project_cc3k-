@@ -118,7 +118,19 @@ int main() {
                     move_dir = "Southwest";
                 }
 
-                hero->move(command);
+                int newX = helper::findX(f->getHero()->getX(), command);
+                int newY = helper::findY(f->getHero()->getY(), command);
+
+                if(f->getCell(newX, newY).canMove()) {
+                    hero->move(command);
+                } else {
+                    display->updateAction("Invalid move direction!!!");
+                    f->nextTurn();
+                    display->updateHeroInfo(hero);
+                    display->render();
+                    continue;
+                }
+
                 if (hero->GetType() == '\\') {
                     f->updateCurFloor();
                     if (f->getCurrentFloor() == 6) {
