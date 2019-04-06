@@ -71,7 +71,7 @@ int main() {
         display->updateHeroInfo(hero);
         display->updateAction("Player character has spawned.");
         display->render(); // print the initial state and floor
-        bool RH_found, BA_found, BD_found, PH_found, WA_found, WD_found = false;
+        bool RH_found = false, BA_found = false ,BD_found = false, PH_found = false, WA_found = false, WD_found = false;
         bool unknown_potion = false;
 
         string command;
