@@ -80,68 +80,70 @@ void Hero::move(string direction) {
 Potion *Hero::pickPotion(string direction) {
     int X = getX();
     int Y = getY();
-    X = helper::findX(X, direction);
-    Y = helper::findY(Y, direction);
-    Cell c = floor->getCell(X, Y);
-    char cell_type = c.getCellType();
-    if (cell_type == 'P') {
-        ConcreteCell *conc = c.GetConcreteCell();
-        Potion *potion = dynamic_cast<Potion *>(conc);
-        if (potion->getIsUsed()) {
+    int newX = helper::findX(X, direction);
+    int newY = helper::findY(Y, direction);
+    Cell c = floor->getCell(newX, newY);
+    ConcreteCell *conc = c.GetConcreteCell();
+    if(conc) {
+        char cell_type = c.GetConcreteCell()->GetType();
+        if (cell_type == 'P') {
+            Potion *potion = dynamic_cast<Potion *>(conc);
+            if (potion->getIsUsed()) {
+                return potion;
+            }
+            potion->setUsed();
+            string potion_type = potion->getType();
+            if (potion_type == "RH") {
+                if (hp + 10 < maxHp) {
+                    hp += 10;
+                } else {
+                    hp = maxHp;
+                }
+            } else if (potion_type == "BA") {
+                atk += 5;
+            } else if (potion_type == "BD") {
+                def += 5;
+            } else if (potion_type == "PH") {
+                if (race == "Elves") {
+                    if (hp + 10 < maxHp) {
+                        hp += 10;
+                    } else {
+                        hp = maxHp;
+                    }
+                } else {
+                    if (hp > 10) {
+                        hp -= 10;
+                    } else {
+                        hp = 0;
+                    }
+                }
+            } else if (potion_type == "WA") {
+                if (race == "Elves") {
+                    atk += 5;
+                } else {
+                    if (atk > 5) {
+                        atk -= 5;
+                    } else {
+                        atk = 0;
+                    }
+                }
+            } else if (potion_type == "WD") {
+                if (race == "Elves") {
+                    def += 5;
+                } else {
+                    if (def > 5) {
+                        def -= 5;
+                    } else {
+                        def = 0;
+                    }
+                }
+            }
+            this->floor->getCell(newX, newY).deleteConcrete(); //delete potion
             return potion;
         }
-        potion->setUsed();
-        string potion_type = potion->getType();
-        if (potion_type == "RH") {
-            if (hp + 10 < maxHp) {
-                hp += 10;
-            } else {
-                hp = maxHp;
-            }
-        } else if (potion_type == "BA") {
-            atk += 5;
-        } else if (potion_type == "BD") {
-            def += 5;
-        } else if (potion_type == "PH") {
-            if (race == "Elves") {
-	        if (hp + 10 < maxHp) {
-		    hp += 10;
-	        } else {
-		hp = maxHp;
-	        }
-	    } else {
-		if (hp > 10) {
-		    hp -= 10;
-		} else {
-		    hp = 0;
-		}
-	    }
-        } else if (potion_type == "WA") {
-			if (race == "Elves") {
-				atk += 5;
-			} else {
-				if (atk > 5) {
-					atk -= 5;
-				}
-				else {
-					atk = 0;
-				}
-			}
-        } else if (potion_type == "WD") {
-			if (race == "Elves") {
-				def += 5;
-			} else {
-				if (def > 5) {
-					def -= 5;
-				}
-				else {
-					def = 0;
-				}
-			}
-        }
-        return potion;
+    }else {
+        return nullptr;
     }
-    return nullptr;
 }
         
 void Hero::pickGold(string direction) {

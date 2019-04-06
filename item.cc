@@ -1,5 +1,5 @@
 #include "item.h"
-
+#include <iostream>
 using namespace std;
 
 bool Item::isPickable() const {

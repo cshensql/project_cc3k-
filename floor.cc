@@ -211,25 +211,25 @@ void Floor::initPotions() {
             y = this->chambers[chamberIndex]->getCells()[index].getY();
             if(!this->getCell(x, y).isOccupied()) {
                 potionType = helper::random(6);
-                switch(potionType) {
-                    case 0:
-                        potionName = "RH";
-                    case 1:
-                        potionName = "BA";
-                    case 2:
-                        potionName = "BD";
-                    case 3:
-                        potionName = "PH";
-                    case 4:
-                        potionName = "WA";
-                    case 5:
-                        potionName = "WD";
+                if(potionType == 0) {
+                    potionName = "RH";
+                } else if(potionType == 1) {
+                    potionName = "BA";
+                } else if(potionType == 2) {
+                    potionName = "BD";
+                } else if(potionType == 3) {
+                    potionName = "PH";
+                } else if(potionType == 4) {
+                    potionName = "WA";
+                } else if(potionType == 5) {
+                    potionName = "WD";
                 }
+
                 Potion *p = new Potion(potionName);
                 p->setX(x);
                 p->setY(y);
                 this->potions.push_back(p);
-                this->getCell(x,y).SetConcreteCell(p);
+                this->getCell(x, y).SetConcreteCell(p);
                 p->SetCell(&this->getCell(x, y));
                 break;
             }

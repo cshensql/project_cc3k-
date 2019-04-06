@@ -53,7 +53,14 @@ int main() {
         } else if(race == 'o') {
             hero = new Orc();
         } else {
-            cout << "Invalid input! Please try again!" << endl;
+            if(race == 'q') {
+                cout << "You Quit The Game!" << endl;
+                playing = false;
+                break;
+            }else {
+                cout << "Invalid input! Please try again!" << endl;
+                continue;
+            }
         }
 
         Floor *f = new Floor(hero);
@@ -226,9 +233,11 @@ int main() {
                 }
                 if (unknown_potion && Potions != "") {
                     display->updateAction("PC moves " + move_dir + " and sees " + Potions + "and unknown potions.");
+                    unknown_potion = false;
                 }
                 else if (unknown_potion) {
                     display->updateAction("PC moves " + move_dir + " and sees " +  "an unknown potion.");
+                    unknown_potion = false;
                 }
                 else if (Potions != "" && !unknown_potion) {
                     display->updateAction("PC moves " + move_dir + " and sees " + Potions + "potions.");
@@ -244,49 +253,52 @@ int main() {
                 if(dir == "no" || dir == "so" || dir == "ea" || dir == "we" ||
                      dir == "ne" || dir == "nw" || dir == "se" || dir == "sw") {
                     Potion *p = hero->pickPotion(dir);
-                    if (!hero->isAlive()) {
-                        cout << "You die!" << endl;
-                        double score;
-                        if (hero->getRace() == "Human") {
-                            score = hero->getGold() * 1.5;
+                    if(p != nullptr) {
+                        if (!hero->isAlive()) {
+                            cout << "You die!" << endl;
+                            double score;
+                            if (hero->getRace() == "Human") {
+                                score = hero->getGold() * 1.5;
+                            } else {
+                                score = hero->getGold();
+                            }
+                            cout << "Your final score is " + to_string(score) + "!" << endl;
+                            cout << "Do you want to play again?" << endl;
+                            string answer;
+                            cout << "Yes or No" << endl;
+                            cin >> answer;
+                            if (answer == "Yes") {
+                                f->clear();
+                                break;
+                            } else if (answer == "No") {
+                                playing = false;
+                                break;
+                            }
                         }
-                        else {
-                            score = hero->getGold();
+                        string p_type = p->getType();
+                        if (p && p->getIsUsed()) {
+                            if (p_type == "RH") {
+                                RH_found = true;
+                            } else if (p_type == "BA") {
+                                BA_found = true;
+                            } else if (p_type == "BD") {
+                                BD_found = true;
+                            } else if (p_type == "PH") {
+                                PH_found = true;
+                            } else if (p_type == "WA") {
+                                WA_found = true;
+                            } else if (p_type == "WD") {
+                                WD_found = true;
+                            }
                         }
-                        cout << "Your final score is " + to_string(score) + "!" << endl;
-                        cout << "Do you want to play again?" << endl;
-                        string answer;
-                        cout << "Yes or No" << endl;
-                        cin >> answer;
-                        if (answer == "Yes") {
-                            f->clear();
-                            break;
-                        }
-                        else if (answer == "No") {
-                            playing = false;
-                            break;
-                        }
+                        display->updateAction("PC uses " + p_type + ".");
+                    }else{
+                        display->updateAction("Incorrect input, there is no potion at your selected direction");
                     }
-                    string p_type = p->getType();
-                    if (p && p->getIsUsed()) {
-                        if(p_type == "RH") {
-                            RH_found = true;
-                        } else if(p_type == "BA") {
-                            BA_found = true;
-                        } else if(p_type == "BD") {
-                            BD_found = true;
-                        } else if(p_type == "PH") {
-                            PH_found = true;
-                        } else if(p_type == "WA") {
-                            WA_found = true;
-                        } else if(p_type == "WD") {
-                            WD_found = true;
-                        }
-                    }
-                    display->updateAction("PC uses " + p_type + ".");
                 } else { //Invalid direction
                     cout << "Incorrect input, please enter one of 'no', 'so', 'ea', 'we', 'ne', 'nw', 'se', 'sw'!" << endl;
                 }
+
             }
 
             //attack with direction dir
@@ -313,7 +325,6 @@ int main() {
 
             //restart
             else if(command == "r") {
-                f->clear();
                 break;
             }
 
