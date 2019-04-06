@@ -166,17 +166,19 @@ bool Hero::pickGold(Cell &gold_cell) {
     gold_cell.deleteConcrete();
     return true;
 }
-        
+
 void Hero::pickCompass(string direction) {
     int X = getX();
     int Y = getY();
     X = helper::findX(X, direction);
     Y = helper::findY(Y, direction);
     Cell c = floor->getCell(X, Y);
-    char cell_type = c.getCellType();
-    if (cell_type == 'C') {
-        this->hasCompass = true;
+    ConcreteCell *conc = c.GetConcreteCell();
+    if (conc == nullptr || conc->GetType() != 'C') {
+        return;
     }
+    this->hasCompass = true;
+    c.deleteConcrete();
 }
 
 void Hero::pickBarrierSuit(string direction) {
@@ -185,13 +187,16 @@ void Hero::pickBarrierSuit(string direction) {
     X = helper::findX(X, direction);
     Y = helper::findY(Y, direction);
     Cell c = floor->getCell(X, Y);
-    char cell_type = c.getCellType();
-    if (cell_type == 'B') {
-        ConcreteCell *conc = c.GetConcreteCell();
-        BarrierSuit *bs = dynamic_cast<BarrierSuit *>(conc);
-        if (!bs->isPickable()) { return; }
-        this->hasBarrier = true;
+    ConcreteCell *conc = c.GetConcreteCell();
+    if (conc == nullptr || conc->GetType() != 'B') {
+        return;
     }
+    BarrierSuit *bs = dynamic_cast<BarrierSuit *>(conc);
+    if (!bs->isPickable()) {
+        return;
+    }
+    this->addBarrier();
+	c.deleteConcrete();
 }
 
 Enemy *Hero::attackDir(string direction) {
