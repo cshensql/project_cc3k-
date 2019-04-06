@@ -35,7 +35,7 @@ class Hero: public Character {
         void pickCompass(std::string direction);
         void pickBarrierSuit(std::string direction);
         Enemy *attackDir(std::string direction); // return a nullptr if there is no enemy at the direction
-        double attack(Enemy *enemy);
+        int attack(Enemy *enemy);
         virtual void setDefaultAtkDef() = 0;
         virtual ~Hero() = 0;
 };

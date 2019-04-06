@@ -9,7 +9,6 @@
 #include "cell.h"
 #include <cstdlib>
 #include <vector>
-#include <cmath>
 #include "merchant.h"
 
 using namespace std;
@@ -94,12 +93,9 @@ void Enemy::attack() {
 	if (miss_random == 0) {
 		return;
 	}
-	double damage = ceil((100.00 / (100.00 + hero->getDef())) * getAtk());
-	//int damage = helper::ceiling((100 / (100 + hero->getDef())) * getAtk());
-
+	int damage = helper::ceiling((100.00 / (100.00 + hero->getDef())) * getAtk());
 	if (hero->carryBarrier()) {
-		damage = ceil(damage / 2);
-		//damage = helper::ceiling(damage / 2);
+		damage = helper::ceiling(damage / 2);
 	}
 	if (hero->getHp() <= damage) {
 		damage = hero->getHp();

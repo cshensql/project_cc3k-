@@ -43,3 +43,15 @@ int helper::findY(int current_y, string direction) {
         return current_y;
     }
 }
+
+int helper::ceiling(double num) {
+    int num_int = num;
+    double num_decimal = num - num_int;
+    int retval = num_int;
+    if (num_decimal > 0) {
+        ++retval;
+    }
+    return retval;
+}
+
+

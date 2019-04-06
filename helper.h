@@ -10,7 +10,7 @@ public:
     static int random(int max);
     static int findX(int current_x, std::string direction);
     static int findY(int current_y, std::string direction);
-//    static int ceiling(double num);
+    static int ceiling(double num);
 };
 
 

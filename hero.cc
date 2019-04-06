@@ -11,7 +11,6 @@
 #include "dragon.h"
 #include "dragonhoard.h"
 #include "enemy.h"
-#include <cmath>
 #include <iostream>
 
 using namespace std;
@@ -73,8 +72,6 @@ void Hero::move(string direction) {
 	    bool picked = this->pickGold(new_cell);
 	    if (!picked) return;
     }
-    // To do: pick compass ??
-
     this->c = &this->floor->getCell(new_cell.getX(), new_cell.getY());
     this->x = new_cell.getX();
     this->y = new_cell.getY();
@@ -217,10 +214,9 @@ Enemy *Hero::attackDir(string direction) {
     }
 }
 
-double Hero::attack(Enemy *enemy) {
+int Hero::attack(Enemy *enemy) {
     if (enemy == nullptr) return 0;
-    double damage = ceil((100.00 / (100.00 + enemy->getDef())) * atk);
-    //int damage = helper::ceiling((100 / (100 + enemy->getDef())) * atk);
+    int damage = helper::ceiling((100.00 / (100.00 + enemy->getDef())) * atk);
     if (enemy->getHp() <= damage) {
         damage = enemy->getHp();
     }

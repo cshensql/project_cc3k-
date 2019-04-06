@@ -332,7 +332,7 @@ int main() {
 		    if (enemy == nullptr) continue; // no enemy at the specified dir
                     char EnemyName = enemy->getType();
                     int heroHp = hero->getHp();
-                    double damage = hero->attack(enemy);
+                    int damage = hero->attack(enemy);
                     int enemyHp = enemy->getHp();
                     f->nextTurn();
                     int damageTaken = heroHp - hero->getHp();
