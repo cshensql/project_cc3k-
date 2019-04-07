@@ -1,6 +1,6 @@
 CXX = g++-5
 CXXFLAGS = -std=c++14 -MMD -Werror=vla
-EXEC = cc3k_exec
+EXEC = cc3k+
 OBJECTS := \
 	main.o textDisplay.o floor.o chamber.o BasicCell.o ConcreteCell.o cell.o \
 	character.o item.o hero.o enemy.o human.o elves.o dwarf.o orc.o \
