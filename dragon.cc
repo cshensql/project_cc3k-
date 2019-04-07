@@ -46,7 +46,7 @@ bool Dragon::getHostile() const{
 }*/
 
 Dragon::~Dragon() {
-	delete dragonH;
-	delete barrierS;
+//	delete dragonH;
+//	delete barrierS;
 }
 
