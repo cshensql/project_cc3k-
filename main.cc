@@ -153,7 +153,7 @@ int main() {
                     continue;
                 }
 
-                if (hero->GetType() == '\\') {
+                if (f->getCell(newX, newY).getCellType() == '\\') {
                     f->updateCurFloor();
                     if (f->getCurrentFloor() == 6) {
                         cout << "Congradulations, you win the game!" << endl;
