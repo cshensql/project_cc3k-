@@ -130,7 +130,7 @@ int main() {
                 int newY = helper::findY(f->getHero()->getY(), command);
                 double goldnum = hero->getGold();
                 if(f->getCell(newX, newY).canMove()) {
-		    ConcreteCell *conc = f->getCell(newX, newY).GetConcreteCell();
+		        ConcreteCell *conc = f->getCell(newX, newY).GetConcreteCell();
                     if(conc != nullptr && ((conc->GetType() == 'G') || (conc->GetType() == 'B'))) {
                         Item *it = dynamic_cast<Item *> (conc);
                         if(it->isPickable()) {
@@ -248,7 +248,7 @@ int main() {
                 }
                 if((hero->getGold() - goldnum) > 0 && unknown_potion) {
                     display->updateAction("PC moves " + move_dir + " and picks "
-                                          + to_string(hero->getGold() - goldnum) + " Golds and sees an unknown potion.");
+                                          + to_string(hero->getGold() - goldnum) + " Gold(s) and sees an unknown potion.");
                 }
                 else if((hero->getGold() - goldnum) > 0) {
                     display->updateAction("PC moves " + move_dir + " and picks " + to_string(hero->getGold() - goldnum) + " Golds.");

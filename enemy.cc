@@ -49,10 +49,17 @@ void Enemy::moveNext() {
 				return;
 			}
 		}
-
 	} else if (abs(enemy_x - hero_x) <= 1 && abs(enemy_y - hero_y) <= 1) {
-		attack();
-		return;
+		if(this->getType() == 'M') {
+			Merchant *m = dynamic_cast<Merchant *> (this);
+			if(m->getHostile()) {
+				attack();
+				return;
+			}
+		} else {
+			attack();
+			return;
+		}
 	}
 
 	if (moveable) {

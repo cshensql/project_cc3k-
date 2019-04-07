@@ -190,6 +190,7 @@ void Floor::initEnemies() {
     this->enemies[compass]->setCompass(true);
     Compass *c = new Compass();
     c->setHolder(this->enemies[compass]);
+    cout << "Compass: " << this->enemies[compass]->getX() << ", " << this->enemies[compass]->getY() << endl;
 }
 
 
