@@ -15,3 +15,4 @@ class Merchant final: public Enemy {
 };
 
 #endif //_MERCHANT_H
+

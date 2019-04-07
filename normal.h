@@ -10,3 +10,4 @@ class Normal: public Treasure {
 };
 
 #endif //_NORMAL_H
+

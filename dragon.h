@@ -24,3 +24,4 @@ class Dragon final: public Enemy {
 };
 
 #endif //_DRAGON_H
+

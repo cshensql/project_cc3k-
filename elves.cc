@@ -16,3 +16,4 @@ void Elves::setDefaultAtkDef() {
 }
 
 Elves::~Elves() {}
+

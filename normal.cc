@@ -6,3 +6,4 @@ Normal::Normal(): Treasure("normal"){
 }
 
 Normal::~Normal () {}
+

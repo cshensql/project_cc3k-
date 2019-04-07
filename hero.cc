@@ -37,7 +37,7 @@ bool Hero::carryCompass() const {
 }
 
 bool Hero::carryBarrier() const {
-	return this->hasBarrier;
+    return this->hasBarrier;
 }
 
 void Hero::setRace(string race_type) {
@@ -69,12 +69,12 @@ void Hero::move(string direction) {
     if (!new_cell.canMove()) return;
     ConcreteCell *conc = new_cell.GetConcreteCell();
     if (conc != nullptr && conc->GetType() == 'G') {
-	bool picked = this->pickGold(new_cell);
-	if (!picked) return;
+    bool picked = this->pickGold(new_cell);
+    if (!picked) return;
     }
     if (conc != nullptr && conc->GetType() == 'B') {
         this->pickBarrierSuit(direction);
-	if (this->carryBarrier() == false) return;    // BarrierSuit is not pickable     
+    if (this->carryBarrier() == false) return;    // BarrierSuit is not pickable     
     }
     this->c = &this->floor->getCell(new_cell.getX(), new_cell.getY());
     this->x = new_cell.getX();
@@ -197,7 +197,7 @@ void Hero::pickBarrierSuit(string direction) {
         return;
     }
     this->addBarrier();
-	c.deleteConcrete();
+    c.deleteConcrete();
 }
 
 Enemy *Hero::attackDir(string direction) {
@@ -226,19 +226,19 @@ int Hero::attack(Enemy *enemy) {
     }
     enemy->setHp(enemy->getHp() - damage);
     if (enemy->getType() == 'M') {
-	Merchant *merchant = dynamic_cast<Merchant *>(enemy);
+    Merchant *merchant = dynamic_cast<Merchant *>(enemy);
         merchant->setHostile(true);
     }
     if (!enemy->isAlive()) {
-	double drop_gold;
+    double drop_gold;
         if (enemy->getType() == 'D') {
             Dragon *dragon = dynamic_cast<Dragon *>(enemy);
             if (dragon->getDragonHoard()) { dragon->getDragonHoard()->setPickable(true); }
             if (dragon->getBarrierSuit()) { dragon->getBarrierSuit()->setPickable(true); }
             drop_gold = 0;
-	    } else {
-	        drop_gold = enemy->dropGold();
-	    }
+        } else {
+            drop_gold = enemy->dropGold();
+        }
 
         if(enemy->getType() != 'M') { // Add gold num only Enemy is not merchant
             if (race == "Dwarf") {
@@ -252,8 +252,8 @@ int Hero::attack(Enemy *enemy) {
 
 
         // TO-DO: drop compass ???
-//	if (enemy.hasCompass)
-	   
+//  if (enemy.hasCompass)
+       
     }
     return damage;
 }

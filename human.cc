@@ -15,3 +15,4 @@ void Human::setDefaultAtkDef() {
 }
 
 Human::~Human() {}
+

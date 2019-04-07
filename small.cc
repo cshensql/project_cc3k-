@@ -6,3 +6,4 @@ Small::Small(): Treasure("small horde") {
 }
 
 Small::~Small() {}
+

@@ -11,3 +11,4 @@ class Dwarf final: public Hero {
 };
 
 #endif //_DWARF_H
+

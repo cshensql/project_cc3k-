@@ -27,3 +27,4 @@ public:
     void SetConcreteCell(ConcreteCell* cCell);
 };
 #endif //_CELL_H
+

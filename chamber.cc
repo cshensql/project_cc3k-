@@ -16,3 +16,4 @@ int Chamber::getSize() {
 void Chamber::addToChamber(Cell c) {
     this->cells.push_back(c);
 }
+

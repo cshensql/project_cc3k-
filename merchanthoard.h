@@ -10,3 +10,4 @@ class MerchantHoard: public Treasure {
 };
 
 #endif //_MERCHANTHOARD_H
+

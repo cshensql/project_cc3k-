@@ -15,3 +15,4 @@ class Goblin final: public Enemy {
 };
 
 #endif //_GOBLIN_H
+

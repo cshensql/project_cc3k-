@@ -20,4 +20,5 @@ class Treasure: public Item {
         virtual ~Treasure() = 0;
 };
 
-#endif //_TREASURE_H 
+#endif //_TREASURE_H
+ 

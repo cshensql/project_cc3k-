@@ -130,7 +130,7 @@ int main() {
                 int newY = helper::findY(f->getHero()->getY(), command);
                 double goldnum = hero->getGold();
                 if(f->getCell(newX, newY).canMove()) {
-		        ConcreteCell *conc = f->getCell(newX, newY).GetConcreteCell();
+                ConcreteCell *conc = f->getCell(newX, newY).GetConcreteCell();
                     if(conc != nullptr && ((conc->GetType() == 'G') || (conc->GetType() == 'B'))) {
                         Item *it = dynamic_cast<Item *> (conc);
                         if(it->isPickable()) {
@@ -329,7 +329,7 @@ int main() {
                 if(dir == "no" || dir == "so" || dir == "ea" || dir == "we" ||
                    dir == "ne" || dir == "nw" || dir == "se" || dir == "sw") {
                     Enemy *enemy = hero->attackDir(dir);
-		    if (enemy == nullptr) continue; // no enemy at the specified dir
+            if (enemy == nullptr) continue; // no enemy at the specified dir
                     char EnemyName = enemy->getType();
                     int heroHp = hero->getHp();
                     int damage = hero->attack(enemy);
@@ -367,3 +367,4 @@ int main() {
         }
     }
 }
+

@@ -1,4 +1,4 @@
-#ifndef _COMPASS_H
+fndef _COMPASS_H
 #define _COMPASS_H
 
 #include "item.h"
@@ -9,10 +9,11 @@ class Enemy;
 class Compass: public Item {
         Enemy *holder;
     public:
-	char GetType() const override;
+        char GetType() const override;
         Compass();
         void setHolder(Enemy *enemy_holder);
         ~Compass();
 };
 
 #endif //_COMPASS_H
+

@@ -10,3 +10,4 @@ class DragonHoard: public Treasure {
 };
 
 #endif //_DRAGONHOARD_H
+

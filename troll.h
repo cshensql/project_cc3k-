@@ -15,3 +15,4 @@ class Troll final: public Enemy {
 };
 
 #endif //_TROLL_H
+

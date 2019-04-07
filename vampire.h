@@ -15,3 +15,4 @@ class Vampire final: public Enemy {
 };
 
 #endif //_VAMPIRE_H
+

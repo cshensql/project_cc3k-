@@ -16,3 +16,4 @@ void Orc::setDefaultAtkDef() {
 }
 
 Orc::~Orc() {}
+

@@ -11,3 +11,4 @@ class Elves final: public Hero {
 };
 
 #endif //_ELVES_H
+

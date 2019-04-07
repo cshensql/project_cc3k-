@@ -14,3 +14,4 @@ char Compass::GetType() const {
 Compass::~Compass() {
     delete holder;
 }
+

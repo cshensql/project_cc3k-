@@ -33,3 +33,4 @@ void Treasure::setState (bool picked) {
 }
 
 Treasure::~Treasure() {}
+

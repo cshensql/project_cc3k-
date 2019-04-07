@@ -32,3 +32,4 @@ char ConcreteCell::GetType() const{
 Cell* ConcreteCell::GetCell() const{
     return this->c;
 }
+

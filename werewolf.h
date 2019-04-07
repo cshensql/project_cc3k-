@@ -15,3 +15,4 @@ class Werewolf final: public Enemy {
 };
 
 #endif //_WEREWOLF_H
+

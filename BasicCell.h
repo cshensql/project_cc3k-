@@ -1,4 +1,5 @@
 #ifndef FINAL_PROJECT_BASICCELL_H
+
 #define FINAL_PROJECT_BASICCELL_H
 
 class BasicCell{
@@ -16,3 +17,4 @@ public:
 };
 
 #endif
+

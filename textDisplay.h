@@ -25,3 +25,4 @@ public:
 };
 
 #endif //_TEXTDISPLAY_H
+

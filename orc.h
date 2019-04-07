@@ -11,3 +11,4 @@ class Orc final: public Hero {
 };
 
 #endif //_ORC_H
+

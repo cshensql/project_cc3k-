@@ -44,3 +44,4 @@ void Cell::SetConcreteCell(ConcreteCell *cCell) {
 ConcreteCell* Cell::GetConcreteCell() {
     return this->Concretecell;
 }
+

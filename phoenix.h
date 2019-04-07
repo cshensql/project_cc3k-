@@ -15,3 +15,4 @@ class Phoenix final: public Enemy {
 };
 
 #endif //_PHOENIX_H
+

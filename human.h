@@ -11,3 +11,4 @@ class Human final: public Hero {
 };
 
 #endif //_HUMAN_H
+

@@ -54,4 +54,3 @@ int helper::ceiling(double num) {
     return retval;
 }
 
-

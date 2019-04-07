@@ -10,3 +10,4 @@ class Small: public Treasure {
 };
 
 #endif //_SMALL_H
+

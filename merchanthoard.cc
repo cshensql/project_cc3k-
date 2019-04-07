@@ -6,3 +6,4 @@ MerchantHoard::MerchantHoard(): Treasure("merchant hoard") {
 }
 
 MerchantHoard::~MerchantHoard() {}
+

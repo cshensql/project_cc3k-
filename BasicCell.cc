@@ -21,3 +21,4 @@ BasicCell::BasicCell() = default;
 BasicCell::~BasicCell() = default;
 
 BasicCell::BasicCell(int x, int y):x{x}, y{y} {}
+

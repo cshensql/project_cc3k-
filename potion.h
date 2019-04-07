@@ -20,3 +20,4 @@ class Potion: public Item {
 };
 
 #endif //_POTION_H
+

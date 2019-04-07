@@ -53,3 +53,4 @@ void TextDisplay::render() {
     cout << "DEF: " << def << endl;
     cout << "Action: " << action << endl;
 }
+

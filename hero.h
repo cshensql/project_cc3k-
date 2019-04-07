@@ -41,3 +41,4 @@ class Hero: public Character {
 };
 
 #endif //_HERO_H
+

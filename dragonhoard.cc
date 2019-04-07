@@ -6,3 +6,4 @@ DragonHoard::DragonHoard(): Treasure("dragon hoard") {
 }
 
 DragonHoard::~DragonHoard() {}
+

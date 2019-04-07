@@ -16,3 +16,4 @@ void Dwarf::setDefaultAtkDef() {
 }
 
 Dwarf::~Dwarf() {}
+

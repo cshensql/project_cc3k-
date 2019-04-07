@@ -19,15 +19,16 @@ int Character::getDef() const {
 void Character::setHp(int Hp) {
     this->hp = Hp;
 }
-    
+
 void Character::setAtk(int Atk) {
     this->atk = Atk;
 }
-    
+
 void Character::setDef(int Def) {
     this->def = Def;
 }
-    
+
 bool Character::isAlive() const {
     return (this->hp > 0);
 }
+

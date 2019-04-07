@@ -9,3 +9,4 @@ BarrierSuit::BarrierSuit() {
 }
 
 BarrierSuit::~BarrierSuit() {}
+
