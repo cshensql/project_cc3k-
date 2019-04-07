@@ -31,6 +31,9 @@ string Hero::getRace() const {
 double Hero::getGold() const {
     return this->goldNum;
 }
+void Hero::setCompass(bool hasCompass) {
+    this->hasCompass = false;
+}
 
 bool Hero::carryCompass() const {
     return this->hasCompass;

@@ -18,10 +18,11 @@ class Hero: public Character {
         bool hasCompass = false;
         Floor *floor = nullptr;
     public:
-    void SetType();
+        void SetType();
         char GetType() const override;
         std::string getRace() const;
         double getGold() const;
+        void setCompass(bool hasCompass);
         bool carryCompass() const;
         bool carryBarrier() const;
         void setRace(std::string race_type);

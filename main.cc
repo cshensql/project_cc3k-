@@ -167,20 +167,24 @@ int main() {
                         cout << "Your final score is " + to_string(score) + "!" << endl;
                         cout << "Do you want to play again?" << endl;
                         string answer;
-                        cout << "Yes or No" << endl;
+                        cout << "Enter Yes or No" << endl;
                         cin >> answer;
-                        if (answer == "Yes") {
+                        if (answer == "Yes" || answer == "yes") {
                             f->clear();
                             break;
                         }
-                        else if (answer == "No") {
+                        else if (answer == "No" || answer == "no") {
                             playing = false;
                             break;
+                        } else {
+                            cout << "Invalid input. Please enter Yes or No" << endl;
+                            continue;
                         }
                     } else {
                         display->updateAction("Player moves to the next floor.");
                         f->init();
                         hero->setDefaultAtkDef();
+                        hero->setCompass(false);
                         display->updateHeroInfo(hero);
                         display->render();
                         continue;
