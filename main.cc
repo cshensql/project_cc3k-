@@ -269,6 +269,7 @@ int main() {
                 }
             }
 
+
             //use potion with direction dir
             else if(command == "u") {
                 cin >> dir;
@@ -329,7 +330,13 @@ int main() {
                 if(dir == "no" || dir == "so" || dir == "ea" || dir == "we" ||
                    dir == "ne" || dir == "nw" || dir == "se" || dir == "sw") {
                     Enemy *enemy = hero->attackDir(dir);
-            if (enemy == nullptr) continue; // no enemy at the specified dir
+                    if (enemy == nullptr) { // no enemy at the specified dir
+                        display->updateAction("There is no enemy in " + dir + ", please enter a valid direction.");
+                        f->nextTurn();
+                        display->updateHeroInfo(hero);
+                        display->render();
+                        continue;
+                    }
                     char EnemyName = enemy->getType();
                     int heroHp = hero->getHp();
                     int damage = hero->attack(enemy);
