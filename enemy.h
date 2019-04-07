@@ -18,6 +18,7 @@ class Enemy: public Character {
         void setHero(Hero *hero);
         void setFloor(Floor *floor);
         void setCompass(bool has_compass);
+	bool getCompass();
         char getType() const;
         void moveNext();
         void attack();

@@ -7,11 +7,11 @@
 class Enemy;
 
 class Compass: public Item {
-        Enemy *holder;
+//        Enemy *holder;
     public:
         char GetType() const override;
         Compass();
-        void setHolder(Enemy *enemy_holder);
+//        void setHolder(Enemy *enemy_holder);
         ~Compass();
 };
 

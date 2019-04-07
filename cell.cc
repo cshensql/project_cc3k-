@@ -16,7 +16,7 @@ bool Cell::isOccupied() {
 bool Cell::canMove() {
     ConcreteCell *conc = this->GetConcreteCell();
     return ((type == '.') || (type == '+') || (type == '#') || (type == '\\')) &&
-           (conc == nullptr || conc->GetType() == 'G' || conc->GetType() == 'B');
+           (conc == nullptr || conc->GetType() == 'G' || conc->GetType() == 'B' || conc->GetType() == 'C');
 }
 
 bool Cell::isStair() {

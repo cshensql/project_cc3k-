@@ -188,8 +188,8 @@ void Floor::initEnemies() {
     }
     compass = helper::random(20);
     this->enemies[compass]->setCompass(true);
-    Compass *c = new Compass();
-    c->setHolder(this->enemies[compass]);
+    //Compass *c = new Compass();
+    //c->setHolder(this->enemies[compass]);
     cout << "Compass: " << this->enemies[compass]->getX() << ", " << this->enemies[compass]->getY() << endl;
 }
 
@@ -433,6 +433,11 @@ void Floor::nextTurn() {
                 enemies[i]->GetCell()->SetConcreteCell(t);
                 t->SetCell(&this->getCell(enemies[i]->getX(), enemies[i]->getY()));
                 this->treasures.push_back(t);
+            }
+	    if (enemies[i]->getCompass()) {
+                Compass *cp = new Compass();
+                enemies[i]->GetCell()->SetConcreteCell(cp);
+                cp->SetCell(&this->getCell(enemies[i]->getX(), enemies[i]->getY()));
             }
             delete enemies[i];
             enemies[i] = nullptr;

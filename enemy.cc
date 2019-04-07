@@ -25,6 +25,10 @@ void Enemy::setCompass(bool has_compass) {
     this->hasCompass = has_compass;
 }
 
+bool Enemy::getCompass() {
+    return hasCompass;
+}
+
 char Enemy::getType() const {
     return this->type;
 }
