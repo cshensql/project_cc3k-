@@ -4,7 +4,7 @@
 #include "enemy.h"
 
 class Merchant final: public Enemy {
-        bool isHostile;
+        static bool isHostile;
     public:
         Merchant();
         double dropGold() const override;

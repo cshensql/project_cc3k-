@@ -3,11 +3,13 @@
 #include "cell.h"
 using namespace std;
 
+bool Merchant::isHostile;
+
 Merchant::Merchant() {
 	type = 'M';
 	hasCompass = false;
 	moveable = true;
-	isHostile = false;
+//	isHostile = false;
 	setHp(30);
 	setAtk(70);
 	setDef(5);
