@@ -1,4 +1,4 @@
-fndef _COMPASS_H
+#ifndef _COMPASS_H
 #define _COMPASS_H
 
 #include "item.h"
