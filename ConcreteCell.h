@@ -12,10 +12,10 @@ protected:
 public:
     ConcreteCell();
     ~ConcreteCell();
-    void SetCell(Cell* cell);
-    Cell* GetCell() const;
+    void SetCell(Cell *cell);
+    Cell *GetCell() const;
     virtual char GetType() const;
 };
 
-#endif
+#endif // CONCRETECELL_H
 
